@@ -1,1 +1,2 @@
-/* You can add global styles to this file, and also import other style files */
+/* Material Design theme import */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";

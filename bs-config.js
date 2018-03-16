@@ -1,3 +1,6 @@
+// lite-server config
+// currently not used
+
 module.exports = {
     server: { baseDir: './src'},
     ghostMode: false,

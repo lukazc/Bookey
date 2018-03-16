@@ -1,6 +1,6 @@
 // The data stored by the RESTful web service needs to be protected so that ordinary users can’t modify the products or change the status or orders.
 
-// Code contains weak passwords that are hardwired into the code, this is not suitable for real projects.
+// Code contains weak passwords that are hardwired into it, this is not suitable for real projects.
 
 const jwt = require("jsonwebtoken");
 const APP_SECRET = "myappsecret";
