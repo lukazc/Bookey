@@ -12,6 +12,8 @@ export class StoreComponent implements OnInit {
 
   constructor(private _repository: ProductRepository) {
   }
+  ngOnInit() {}
+
   get products(): Product[] {
     return this._repository.getProducts();
   }

@@ -6,7 +6,6 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule, MatGridListModule, MatFormFieldModule, MatInputModule,
   MatSelectModule, MatButtonModule, MatCheckboxModule, MatPaginatorModule,
   MatProgressSpinnerModule, MatIconModule } from '@angular/material';
-import { StoreComponent } from './store/store.component';
 
 @NgModule({
   imports: [
@@ -36,6 +35,6 @@ import { StoreComponent } from './store/store.component';
     MatProgressSpinnerModule,
     MatIconModule
   ],
-  declarations: [StoreComponent]
+  declarations: []
 })
 export class MaterialDesignModule { }
