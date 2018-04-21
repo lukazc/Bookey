@@ -1,2 +1,50 @@
-<div>{{categories.length}}</div>
-<div>{{products.length}}</div>
+<div>
+  <mat-sidenav-container>
+    <mat-sidenav #drawer id="drawer" mode="side" closed>
+      <mat-toolbar color="primary"
+      (click)="drawer.toggle()">
+      
+      <!-- This fills the remaining space of the current row -->
+      <span style="flex: 1 1 auto"></span>
+      
+    </mat-toolbar>
+    
+    <h3 style="margin-left: 15px">Genre</h3>
+
+    <div class="category-checkbox" *ngFor="let category of categories">
+      <mat-checkbox [checked]="true">
+        {{category}}
+      </mat-checkbox>
+    </div>
+  </mat-sidenav>
+  
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+
+      <button class="toolbar-button" mat-icon-button (click)="drawer.toggle()" color="secondary">
+        <mat-icon aria-hidden="true">menu</mat-icon>
+      </button>
+
+      <span>Web Shop</span>
+      
+      <!-- This fills the remaining space of the current row -->
+      <span style="flex: 1 1 auto"></span>
+      
+      <button class="toolbar-button" mat-mini-fab (click)="console.log('under construction')">
+          <mat-icon aria-hidden="true">shopping_cart</mat-icon>
+      </button>
+      <button class="toolbar-button" mat-mini-fab (click)="console.log('under construction')" color="primary">
+          <mat-icon aria-hidden="true">account_circle</mat-icon>
+      </button>
+
+    </mat-toolbar>
+    
+    <div>
+      <mat-grid-list cols="{{columns}}" rowHeight="1:2">
+        <mat-grid-tile *ngFor="let product of products">{{product.title}}</mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </mat-sidenav-content>
+  
+</mat-sidenav-container>
+</div>

@@ -1,2 +1,4 @@
 /* Material Design theme import */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body { margin: 0; }

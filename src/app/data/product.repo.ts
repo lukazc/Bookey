@@ -11,8 +11,8 @@ export class ProductRepository {
     constructor(private _dataSource: DataSource) {
         _dataSource.getProducts().subscribe(data => {
             this.products = data;
-            this.categories = data.map(p => p.category)
-            .filter((c, index, array) => array.indexOf(c) === index).sort();
+            this.categories = data.map(product => product.category)
+            .filter((category, index, array) => array.indexOf(category) === index).sort();
         });
     }
 

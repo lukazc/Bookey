@@ -1,0 +1,12 @@
+#drawer {
+    min-width: 250px;
+}
+
+.toolbar-button {
+    margin-right: 15px;
+}
+
+.category-checkbox {
+    margin-top: 15px;
+    margin-left: 15px;
+}
