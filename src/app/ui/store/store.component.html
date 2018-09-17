@@ -1,5 +1,5 @@
 <div>
-  <mat-sidenav-container>
+  <mat-sidenav-container style="height: 100vh">
     <mat-sidenav #drawer id="drawer" mode="side" closed>
       <mat-toolbar color="primary"
       (click)="drawer.toggle()">
@@ -10,38 +10,47 @@
     </mat-toolbar>
     
     <h3 style="margin-left: 15px">Genre</h3>
-
+    
     <div class="category-checkbox" *ngFor="let category of categories">
-      <mat-checkbox [checked]="true">
+      <mat-checkbox [checked]="false" (change)="changeCategory(category)">
         {{category}}
       </mat-checkbox>
     </div>
   </mat-sidenav>
   
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-
+    <mat-toolbar color="primary" class="toolbar">
+      
       <button class="toolbar-button" mat-icon-button (click)="drawer.toggle()" color="secondary">
         <mat-icon aria-hidden="true">menu</mat-icon>
       </button>
-
+      
       <span>Web Shop</span>
       
       <!-- This fills the remaining space of the current row -->
       <span style="flex: 1 1 auto"></span>
       
       <button class="toolbar-button" mat-mini-fab (click)="console.log('under construction')">
-          <mat-icon aria-hidden="true">shopping_cart</mat-icon>
+        <mat-icon aria-hidden="true">shopping_cart</mat-icon>
       </button>
       <button class="toolbar-button" mat-mini-fab (click)="console.log('under construction')" color="primary">
-          <mat-icon aria-hidden="true">account_circle</mat-icon>
+        <mat-icon aria-hidden="true">account_circle</mat-icon>
       </button>
-
+      
     </mat-toolbar>
     
-    <div>
-      <mat-grid-list cols="{{columns}}" rowHeight="1:2">
-        <mat-grid-tile *ngFor="let product of products">{{product.title}}</mat-grid-tile>
+    <div class="content-container">
+      <mat-grid-list class="tile-grid" cols="{{columns}}" rowHeight="1:1.5">
+        <mat-grid-tile class="tile" *ngFor="let product of products">
+          <img class="scale-img" src="../../../assets/open-book-blu.svg">
+          <div class="tile-footer">
+            <div class="price"> {{product.price}}$ </div>
+            <div class="description">
+              <div class="title"> {{product.title}} </div>
+              <div> {{product.author}} </div>
+            </div>
+          </div>
+        </mat-grid-tile>
       </mat-grid-list>
     </div>
   </mat-sidenav-content>

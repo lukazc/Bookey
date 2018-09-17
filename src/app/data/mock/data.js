@@ -12,5 +12,5 @@ module.exports = function () {
             { id: 9, title: "Thinking: Fast and Slow", author: "Daniel Kahneman", category: "Psychology", description: "Summary of 50 years of psychological experiments.", price: 21.75 }
         ],
         orders: [] 
-    } 
-    }
+    }; 
+};

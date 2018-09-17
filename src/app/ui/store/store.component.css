@@ -2,6 +2,9 @@
     min-width: 250px;
 }
 
+.toolbar {
+}
+
 .toolbar-button {
     margin-right: 15px;
 }
@@ -9,4 +12,41 @@
 .category-checkbox {
     margin-top: 15px;
     margin-left: 15px;
+}
+
+.tile-grid {
+    background-color: azure;
+}
+
+.tile {
+}
+
+.tile-footer {
+    display: block !important;
+    position: absolute;
+    bottom: 0;
+    height: fit-content !important;
+    width: 100%;
+    border-radius: 4%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    background: rgba(173, 175, 199, 0.75);
+}
+
+.title {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: rgb(5, 0, 36);
+}
+
+.price {
+    font-size: 2em !important;
+    font-weight: bold;
+    color: maroon;
+    background-color: steelblue;
+}
+
+.scale-img {
+    width: 80%;
+    margin: 0 auto 0;
 }

@@ -16,9 +16,14 @@ export class ProductRepository {
         });
     }
 
-    getProducts(category: string = null): Product[] {
-        return this.products.filter(
-            p => category == null || category === p.category);
+    getProducts(categories: Set<string> = new Set): Product[] {
+        if (categories.size === 0) {
+            return this.products;
+        } else {
+            return this.products.filter(
+                p => (categories.has(p.category))
+                );
+        }
     }
     getProduct(id: number): Product {
         return this.products.find(p => p.id === id);
