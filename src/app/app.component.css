@@ -1,0 +1,5 @@
+app-store {
+    flex: 1;
+    display: inherit;
+    flex-direction: column;
+}

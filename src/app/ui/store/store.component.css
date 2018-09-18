@@ -3,10 +3,19 @@
 }
 
 .toolbar {
+    flex-shrink: 0;
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000;
 }
 
 .toolbar-button {
     margin-right: 15px;
+}
+
+.container {
+    flex: 1;
 }
 
 .category-checkbox {
@@ -49,4 +58,10 @@
 .scale-img {
     width: 80%;
     margin: 0 auto 0;
+}
+
+.paginator {
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }

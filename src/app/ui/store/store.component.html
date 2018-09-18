@@ -1,14 +1,25 @@
-<div>
-  <mat-sidenav-container style="height: 100vh">
+<mat-toolbar color="primary" class="toolbar">
+      
+        <button class="toolbar-button" mat-icon-button (click)="drawer.toggle()" color="secondary">
+          <mat-icon aria-hidden="true">menu</mat-icon>
+        </button>
+        
+        <span>Web Shop</span>
+        
+        <!-- This fills the remaining space of the current row -->
+        <span style="flex: 1 1 auto"></span>
+        
+        <button class="toolbar-button" mat-mini-fab (click)="console.log('under construction')">
+          <mat-icon aria-hidden="true">shopping_cart</mat-icon>
+        </button>
+        <button class="toolbar-button" mat-mini-fab (click)="console.log('under construction')" color="primary">
+          <mat-icon aria-hidden="true">account_circle</mat-icon>
+        </button>
+        
+      </mat-toolbar>
+  <mat-sidenav-container class="container">
     <mat-sidenav #drawer id="drawer" mode="side" closed>
-      <mat-toolbar color="primary"
-      (click)="drawer.toggle()">
-      
-      <!-- This fills the remaining space of the current row -->
-      <span style="flex: 1 1 auto"></span>
-      
-    </mat-toolbar>
-    
+   
     <h3 style="margin-left: 15px">Genre</h3>
     
     <div class="category-checkbox" *ngFor="let category of categories">
@@ -19,29 +30,11 @@
   </mat-sidenav>
   
   <mat-sidenav-content>
-    <mat-toolbar color="primary" class="toolbar">
-      
-      <button class="toolbar-button" mat-icon-button (click)="drawer.toggle()" color="secondary">
-        <mat-icon aria-hidden="true">menu</mat-icon>
-      </button>
-      
-      <span>Web Shop</span>
-      
-      <!-- This fills the remaining space of the current row -->
-      <span style="flex: 1 1 auto"></span>
-      
-      <button class="toolbar-button" mat-mini-fab (click)="console.log('under construction')">
-        <mat-icon aria-hidden="true">shopping_cart</mat-icon>
-      </button>
-      <button class="toolbar-button" mat-mini-fab (click)="console.log('under construction')" color="primary">
-        <mat-icon aria-hidden="true">account_circle</mat-icon>
-      </button>
-      
-    </mat-toolbar>
     
-    <div class="content-container">
+    
+    <div>
       <mat-grid-list class="tile-grid" cols="{{columns}}" rowHeight="1:1.5">
-        <mat-grid-tile class="tile" *ngFor="let product of products">
+        <mat-grid-tile class="tile" *ngFor="let product of productsOnPage">
           <img class="scale-img" src="../../../assets/open-book-blu.svg">
           <div class="tile-footer">
             <div class="price"> {{product.price}}$ </div>
@@ -53,7 +46,15 @@
         </mat-grid-tile>
       </mat-grid-list>
     </div>
+
+    <mat-paginator
+    [length]="productsInCategory.length"
+    [pageIndex]="selectedPage"
+    [pageSize]="productsPerPage"
+    [pageSizeOptions]="[4, 8, 16, 32]"
+    (page)="pageEvent($event)">
+    </mat-paginator>
+
   </mat-sidenav-content>
-  
+
 </mat-sidenav-container>
-</div>
