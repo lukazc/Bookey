@@ -1,26 +1,25 @@
 <mat-toolbar color="primary" class="toolbar">
-      
-        <button class="toolbar-button" mat-icon-button color="secondary"
-        (click)="drawer.toggle()">
-          <mat-icon aria-hidden="true">menu</mat-icon>
-        </button>
-        
-        <span>Web Shop</span>
-        
-        <!-- This fills the remaining space of the current row -->
-        <span style="flex: 1 1 auto"></span>
-        
-        <button class="toolbar-button" mat-mini-fab (click)="console.log('under construction')">
-          <mat-icon aria-hidden="true">shopping_cart</mat-icon>
-        </button>
-        <button class="toolbar-button" mat-mini-fab (click)="console.log('under construction')" color="primary">
-          <mat-icon aria-hidden="true">account_circle</mat-icon>
-        </button>
-        
-      </mat-toolbar>
-  <mat-sidenav-container class="container">
-    <mat-sidenav #drawer id="drawer" mode="side" closed>
-   
+  
+  <button class="toolbar-button" mat-icon-button color="secondary"
+  (click)="drawer.toggle()">
+  <mat-icon aria-hidden="true">menu</mat-icon>
+</button>
+
+<span>Web Shop</span>
+
+<!-- This fills the remaining space of the current row -->
+<span style="flex: 1 1 auto"></span>
+
+<cart-summary></cart-summary>
+
+<button class="toolbar-button" mat-mini-fab (click)="console.log('under construction')" color="primary">
+  <mat-icon aria-hidden="true">account_circle</mat-icon>
+</button>
+
+</mat-toolbar>
+<mat-sidenav-container class="container">
+  <mat-sidenav #drawer id="drawer" mode="side" closed>
+    
     <h3 style="margin-left: 15px">Genre</h3>
     
     <div class="category-checkbox" *ngFor="let category of categories">
@@ -36,26 +35,30 @@
     <div>
       <mat-grid-list class="tile-grid" cols="{{columns}}" rowHeight="1:1.5">
         <mat-grid-tile class="tile" *ngFor="let product of productsOnPage">
+            <button class="add-to-cart-button" mat-mini-fab color="primary"
+            (click)="addProductToCart(product)">
+              <mat-icon aria-hidden="true">add_shopping_cart</mat-icon>
+            </button>
           <img class="scale-img" src="../../../assets/open-book-blu.svg">
           <div class="tile-footer">
             <div class="price"> {{product.price}}$ </div>
-            <div class="description">
-              <div class="title"> {{product.title}} </div>
-              <div> {{product.author}} </div>
-            </div>
+          <div class="description">
+            <div class="title"> {{product.title}} </div>
+            <div> {{product.author}} </div>
           </div>
-        </mat-grid-tile>
-      </mat-grid-list>
-    </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  
+  <mat-paginator
+  [length]="productsInCategory.length"
+  [pageIndex]="selectedPage"
+  [pageSize]="productsPerPage"
+  [pageSizeOptions]="[4, 8, 16, 32]"
+  (page)="paginatorEvent($event)">
+</mat-paginator>
 
-    <mat-paginator
-    [length]="productsInCategory.length"
-    [pageIndex]="selectedPage"
-    [pageSize]="productsPerPage"
-    [pageSizeOptions]="[4, 8, 16, 32]"
-    (page)="paginatorEvent($event)">
-    </mat-paginator>
-
-  </mat-sidenav-content>
+</mat-sidenav-content>
 
 </mat-sidenav-container>

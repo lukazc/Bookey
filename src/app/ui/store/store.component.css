@@ -27,9 +27,6 @@
     background-color: azure;
 }
 
-.tile {
-}
-
 .tile-footer {
     display: block !important;
     position: absolute;
@@ -53,6 +50,12 @@
     font-weight: bold;
     color: maroon;
     background-color: steelblue;
+}
+
+.add-to-cart-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }
 
 .scale-img {
