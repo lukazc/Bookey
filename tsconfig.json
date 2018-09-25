@@ -16,6 +16,12 @@
       "dom"
     ],
     "module": "es2015",
-    "baseUrl": "./"
+    "baseUrl": "src",
+    "paths": {
+      "@app-data/*": ["app/data/*"],
+      "@app-ui/*": ["app/ui/*"],
+      "@app/*": ["app/*"],
+      "@env/*": ["environments/*"]
+    }
   }
 }

@@ -1,6 +1,7 @@
 <mat-toolbar color="primary" class="toolbar">
       
-        <button class="toolbar-button" mat-icon-button (click)="drawer.toggle()" color="secondary">
+        <button class="toolbar-button" mat-icon-button color="secondary"
+        (click)="drawer.toggle()">
           <mat-icon aria-hidden="true">menu</mat-icon>
         </button>
         
@@ -52,7 +53,7 @@
     [pageIndex]="selectedPage"
     [pageSize]="productsPerPage"
     [pageSizeOptions]="[4, 8, 16, 32]"
-    (page)="pageEvent($event)">
+    (page)="paginatorEvent($event)">
     </mat-paginator>
 
   </mat-sidenav-content>
