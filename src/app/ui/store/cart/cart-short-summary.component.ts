@@ -3,10 +3,10 @@ import { Component } from '@angular/core';
 import { Cart } from '@app-data/cart/cart.service';
 
 @Component({
-    selector: 'cart-summary',
+    selector: 'cart-short-summary',
     moduleId: module.id,
-    templateUrl: 'cart-summary.component.html'
+    templateUrl: 'cart-short-summary.component.html'
 })
-export class CartSummaryComponent {
+export class CartShortSummaryComponent {
     constructor(public cart: Cart) { }
 }

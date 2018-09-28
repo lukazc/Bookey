@@ -7,6 +7,7 @@ import { MaterialDesignModule } from '@app-ui/material.design.module';
 import { StoreModule } from '@app-ui/store/store.module';
 
 import { AppComponent } from './app.component';
+import { RoutingModule } from './routing.module';
 
 @NgModule({
   declarations: [
@@ -17,9 +18,9 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialDesignModule,
-    StoreModule
+    StoreModule,
+    RoutingModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,13 +7,15 @@ import { MaterialDesignModule } from '@app-ui/material.design.module';
 import { DataModule } from '@app-data/data.module';
 
 import { StoreComponent } from './store.component';
-import { CartSummaryComponent } from '@app-ui/store/cart/cart-summary.component';
+import { CartShortSummaryComponent } from '@app-ui/store/cart/cart-short-summary.component';
+import { CartComponent } from '@app-ui/store/cart/cart.component';
+import { CheckoutComponent } from '@app-ui/store/checkout/checkout.component';
 
 @NgModule({
   imports: [
     BrowserModule, FormsModule, MaterialDesignModule, DataModule
   ],
-  declarations: [ StoreComponent, CartSummaryComponent ],
-  exports: [ StoreComponent ]
+  declarations: [ StoreComponent, CartShortSummaryComponent, CartComponent, CheckoutComponent ],
+  exports: [ StoreComponent, CartComponent, CheckoutComponent ]
 })
 export class StoreModule { }
