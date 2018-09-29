@@ -1,3 +1,56 @@
+<!-- add Toolbar here  -->
+
 <div>
-    <h3 class="bg-info p-a-1">Cart Detail Component</h3>
+    <h2>Your Cart</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Quantity</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="cart.lines.length == 0">
+                <td colspan="4">
+                    Your cart is empty
+                </td>
+            </tr>
+            <tr *ngFor="let line of cart.lines">
+                <td>
+                    <input type="number"
+                    [value]="line.quantity"
+                    (change)="cart.updateQuantity(line.product, $event.target.value)"/>
+                </td>
+                <td>{{line.product.title}}</td>
+                <td>
+                    {{line.product.price | currency:"USD":true:"1.2-2"}}
+                </td>
+                <td>
+                    {{(line.lineTotal) | currency:"USD":true:"1.2-2" }}
+                </td>
+                <td>
+                    <button (click)="cart.removeLine(line.product.id)">
+                    Remove
+                </button>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">Total:</td>
+            <td>
+                {{cart.cartPrice | currency:"USD":true:"1.2-2"}}
+            </td>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<div>
+    <button routerLink="/store">Continue Shopping</button>
+    <button routerLink="/checkout"
+    [disabled]="cart.lines.length == 0">
+    Checkout
+</button>
 </div>
