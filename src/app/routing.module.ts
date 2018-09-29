@@ -6,18 +6,23 @@ import { StoreComponent } from '@app-ui/store/store.component';
 import { CartComponent } from '@app-ui/store/cart/cart.component';
 import { CheckoutComponent } from '@app-ui/store/checkout/checkout.component';
 
+import { StoreFirstGuard } from '@app/route.guard';
+
 const appRoutes: Routes = [
   {
     path: "store",
-    component: StoreComponent
+    component: StoreComponent,
+    canActivate: [StoreFirstGuard]
   },
   {
     path: "cart",
-    component: CartComponent
+    component: CartComponent,
+    canActivate: [StoreFirstGuard]
   },
   {
     path: "checkout",
-    component: CheckoutComponent
+    component: CheckoutComponent,
+    canActivate: [StoreFirstGuard]
   },
   {
     path: "**",

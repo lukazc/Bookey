@@ -2,23 +2,29 @@
   
   <button class="toolbar-button" mat-icon-button color="secondary"
   (click)="drawer.toggle()">
-  <mat-icon aria-hidden="true">menu</mat-icon>
-</button>
+    <mat-icon aria-hidden="true">menu</mat-icon>
+  </button>
 
-<span>Web Shop</span>
+  <span>Web Shop</span>
 
-<!-- This fills the remaining space of the current row -->
-<span style="flex: 1 1 auto"></span>
+  <!-- This fills the remaining space of the current row -->
+  <span style="flex: 1 1 auto"></span>
 
-<cart-short-summary></cart-short-summary>
+  <cart-short-summary></cart-short-summary>
 
-<button class="toolbar-button" mat-mini-fab (click)="console.log('under construction')" color="primary">
-  <mat-icon aria-hidden="true">account_circle</mat-icon>
-</button>
+  <button class="toolbar-button" mat-mini-fab color="primary"
+    routerLink="/cart">
+    <mat-icon aria-hidden="true">shopping_cart</mat-icon>
+  </button>
+
+  <button class="toolbar-button" mat-mini-fab color="primary"
+  (click)="console.log('under construction')">
+    <mat-icon aria-hidden="true">account_circle</mat-icon>
+  </button>
 
 </mat-toolbar>
 <mat-sidenav-container class="container">
-  <mat-sidenav #drawer id="drawer" mode="side" closed>
+  <mat-sidenav #drawer id="drawer" [mode]="drawerMode" closed>
     
     <h3 style="margin-left: 15px">Genre</h3>
     
@@ -35,13 +41,13 @@
     <div>
       <mat-grid-list class="tile-grid" cols="{{columns}}" rowHeight="1:1.5">
         <mat-grid-tile class="tile" *ngFor="let product of productsOnPage">
-            <button class="add-to-cart-button" mat-mini-fab color="primary"
-            (click)="addProductToCart(product)">
-              <mat-icon aria-hidden="true">add_shopping_cart</mat-icon>
-            </button>
-          <img class="scale-img" src="../../../assets/open-book-blu.svg">
-          <div class="tile-footer">
-            <div class="price"> {{product.price}}$ </div>
+          <button class="add-to-cart-button" mat-mini-fab color="primary"
+          (click)="addProductToCart(product)">
+          <mat-icon aria-hidden="true">add_shopping_cart</mat-icon>
+        </button>
+        <img class="scale-img" src="../../../assets/open-book-blu.svg">
+        <div class="tile-footer">
+          <div class="price"> {{product.price}}$ </div>
           <div class="description">
             <div class="title"> {{product.title}} </div>
             <div> {{product.author}} </div>

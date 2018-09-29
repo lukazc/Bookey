@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { MaterialDesignModule } from '@app-ui/material.design.module';
 
@@ -13,7 +14,7 @@ import { CheckoutComponent } from '@app-ui/store/checkout/checkout.component';
 
 @NgModule({
   imports: [
-    BrowserModule, FormsModule, MaterialDesignModule, DataModule
+    BrowserModule, RouterModule, FormsModule, MaterialDesignModule, DataModule
   ],
   declarations: [ StoreComponent, CartShortSummaryComponent, CartComponent, CheckoutComponent ],
   exports: [ StoreComponent, CartComponent, CheckoutComponent ]

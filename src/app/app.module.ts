@@ -8,6 +8,7 @@ import { StoreModule } from '@app-ui/store/store.module';
 
 import { AppComponent } from './app.component';
 import { RoutingModule } from './routing.module';
+import { StoreFirstGuard } from '@app/route.guard';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { RoutingModule } from './routing.module';
     StoreModule,
     RoutingModule
   ],
+  providers: [StoreFirstGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

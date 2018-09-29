@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { Product } from '@app-data/product.model';
 import { ProductRepository } from '@app-data/product.repo';
 import { Cart } from '@app-data/cart/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-store',
@@ -16,6 +17,7 @@ import { Cart } from '@app-data/cart/cart.service';
 export class StoreComponent implements OnInit {
 
   columns: number;
+  drawerMode: string;
   observerSubscription: Subscription;
 
   public selectedCategories: Set<string> = new Set;
@@ -23,13 +25,19 @@ export class StoreComponent implements OnInit {
   public productsPerPage = 4;
   public selectedPage = 0;
 
-  constructor(private _repository: ProductRepository, private cart: Cart, breakpointObserver: BreakpointObserver) {
+  constructor(
+    private router: Router,
+    private _repository: ProductRepository,
+    private cart: Cart,
+    breakpointObserver: BreakpointObserver) {
     this.observerSubscription = breakpointObserver.observe([Breakpoints.XSmall])
     .subscribe((result: BreakpointState) => {
       if (result.matches) {
         this.columns = 1;
+        this.drawerMode = "over";
       } else {
         this.columns = 4;
+        this.drawerMode = "side";
       }
     });
   }
