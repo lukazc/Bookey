@@ -1,3 +1,54 @@
-<div>
-    <h3 class="bg-info p-a-1">Checkout Component</h3>
+<div *ngIf="orderSent">
+    <h2>Thanks!</h2>
+    <p>Thanks for placing your order.</p>
+    <p>We'll deliver your goods to your address.</p>
+    <button  routerLink="/store">Return to Store</button>
 </div>
+
+<form *ngIf="!orderSent" #form="ngForm" novalidate
+(ngSubmit)="submitOrder(form)">
+<div>
+    <label>Name</label>
+    <input  #name="ngModel" name="name"
+    [(ngModel)]="order.name" required />
+    <span *ngIf="submitAttempted && name.invalid">
+        Please enter your name
+    </span>
+</div>
+<div>
+    <label>Address</label>
+    <input  #address="ngModel" name="address"
+    [(ngModel)]="order.address" required />
+    <span *ngIf="submitAttempted && address.invalid">
+        Please enter your address
+    </span>
+</div>
+<div>
+    <label>City</label>
+    <input  #city="ngModel" name="city"
+    [(ngModel)]="order.city" required />
+    <span *ngIf="submitAttempted && city.invalid">
+        Please enter your city
+    </span>
+</div>
+<div>
+    <label>Zip/Postal Code</label>
+    <input  #zip="ngModel" name="zip"
+    [(ngModel)]="order.zip" required />
+    <span *ngIf="submitAttempted && zip.invalid">
+        Please enter your zip/postal code
+    </span>
+</div>
+<div>
+    <label>Country</label>
+    <input  #country="ngModel" name="country"
+    [(ngModel)]="order.country" required />
+    <span *ngIf="submitAttempted && country.invalid">
+        Please enter your country
+    </span>
+</div>
+<div>
+    <button  routerLink="/cart">Back</button>
+    <button  type="submit">Complete Order</button>
+</div>
+</form>
