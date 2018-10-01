@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-import { Product } from './product.model';
+import { Observable } from 'rxjs';
+
+import { Order } from '@app-data/order.model';
+import { Product } from '@app-data/product.model';
 
 const PROTOCOL = 'http';
 const PORT = 3500;
@@ -16,13 +18,12 @@ export class DataSource {
     }
 
     getProducts(): Observable<Product[]> {
-        return this.sendRequest('GET', 'products');
+        const url = this.baseUrl + 'products';
+        return this._http.get<Product[]>(url);
     }
 
-    private sendRequest(verb: string, url: string, body?: Product): Observable<any> {
-        const finalUrl = this.baseUrl + url;
-        return this._http.request(
-            verb, finalUrl, {body}
-        );
+    saveOrder(order: Order): Observable<Order> {
+        const url = this.baseUrl + 'orders';
+        return this._http.post<Order>(url, order);
     }
 }
