@@ -1,0 +1,11 @@
+:host() {
+    flex-shrink: 0;
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000;
+}
+
+.toolbar-button {
+    margin-right: 15px;
+}

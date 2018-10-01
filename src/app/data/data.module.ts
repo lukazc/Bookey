@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { Cart } from '@app-data/cart/cart.service';
 import { DataSource } from '@app-data/data.source';
@@ -8,9 +7,7 @@ import { Order } from '@app-data/order.model';
 import { OrderRepository } from '@app-data/order.repo';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [],
   declarations: [],
   providers: [ProductRepository, DataSource, Cart, Order, OrderRepository]
 })

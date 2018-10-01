@@ -1,3 +1,7 @@
+:host(){
+    flex-direction: column;
+}
+
 router-outlet {
     flex: 0;
     display: none;

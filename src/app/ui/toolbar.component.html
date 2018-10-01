@@ -1,0 +1,19 @@
+<mat-toolbar color="primary" class="toolbar">
+
+    <span>Web Shop</span>
+
+    <!-- This fills the remaining space of the current row -->
+    <span style="flex: 1 1 auto"></span>
+
+    <button class="toolbar-button" mat-mini-fab color="secondary"
+      routerLink="/cart"
+      [disabled]="cart.itemCount == 0">
+      <mat-icon aria-hidden="true">shopping_cart</mat-icon>
+    </button>
+
+    <button class="toolbar-button" mat-mini-fab color="primary"
+    (click)="console.log('under construction')">
+      <mat-icon aria-hidden="true">account_circle</mat-icon>
+    </button>
+
+  </mat-toolbar>
