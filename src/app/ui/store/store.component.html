@@ -4,8 +4,34 @@
   </mat-checkbox>
 </div> -->
 
+<mat-accordion>
+  <mat-expansion-panel
+  hideToggle [disabled]="true" [expanded]="filterExpanded">
+  <mat-expansion-panel-header fxLayout="column" fxLayoutAlign="end center">
+      <mat-form-field>
+        <input matInput type="search"
+        placeholder="Search"
+        [(ngModel)]="value">
+        <button mat-button matSuffix mat-icon-button
+        (click)="value=''">
+        <mat-icon *ngIf="!value">search</mat-icon>
+        <mat-icon *ngIf="value">close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-button-toggle class="toggle-filter" fxFlexOffset="15px" fxFlexAlign="center"
+    (change)="toggleExpandFilter()">
+    FILTER
+      <mat-icon>tune</mat-icon>
+    </mat-button-toggle>
+</mat-expansion-panel-header>
+<!-- left: add category select -->
+<!-- middle: add selected category badges ngFor -->
+<!-- right: add sort dropdown -->
+</mat-expansion-panel>
+</mat-accordion>
+
 <mat-grid-list class="tile-grid" cols="{{columns}}" rowHeight="1:1.5">
-<mat-grid-tile class="tile" *ngFor="let product of productsOnPage">
+  <mat-grid-tile *ngFor="let product of productsOnPage">
     <button class="add-to-cart-button" mat-mini-fab color="primary"
     (click)="addProductToCart(product)">
     <mat-icon aria-hidden="true">add_shopping_cart</mat-icon>

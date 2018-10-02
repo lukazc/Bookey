@@ -17,8 +17,8 @@ import { Router } from '@angular/router';
 export class StoreComponent implements OnInit {
 
   columns: number;
-  drawerMode: string;
   observerSubscription: Subscription;
+  filterExpanded: boolean = false;
 
   public selectedCategories: Set<string> = new Set;
 
@@ -34,10 +34,8 @@ export class StoreComponent implements OnInit {
     .subscribe((result: BreakpointState) => {
       if (result.matches) {
         this.columns = 1;
-        this.drawerMode = "over";
       } else {
         this.columns = 4;
-        this.drawerMode = "side";
       }
     });
   }
@@ -89,6 +87,11 @@ export class StoreComponent implements OnInit {
 
   addProductToCart(product: Product) {
     this.cart.addLine(product);
+  }
+
+  toggleExpandFilter() {
+    this.filterExpanded = !this.filterExpanded;
+    console.log(this.filterExpanded);
   }
 
 }

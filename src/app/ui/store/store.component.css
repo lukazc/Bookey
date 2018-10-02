@@ -5,24 +5,10 @@
     flex: 1;
 }
 
-#drawer {
-    min-width: 250px;
-}
-
-.toolbar {
-    flex-shrink: 0;
-    position: sticky;
-    position: -webkit-sticky; /* For macOS/iOS Safari */
-    top: 0; /* Sets the sticky toolbar to be on top */
-    z-index: 1000;
-}
-
-.toolbar-button {
-    margin-right: 15px;
-}
-
-.container {
-    flex: 1;
+.toggle-filter{
+    position: fixed;
+    right: 15px;
+    margin-right: 16px;
 }
 
 .category-checkbox {
@@ -30,12 +16,13 @@
     margin-left: 15px;
 }
 
+
 .tile-grid {
     background-color: azure;
 }
 
 .tile-footer {
-    display: block !important;
+    /* display: block !important; */
     position: absolute;
     bottom: 0;
     height: fit-content !important;

@@ -5,18 +5,23 @@ import { CommonModule } from '@angular/common';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatGridListModule, MatFormFieldModule, MatInputModule,
   MatSelectModule, MatButtonModule, MatCheckboxModule, MatPaginatorModule,
-  MatProgressSpinnerModule, MatIconModule } from '@angular/material';
+  MatProgressSpinnerModule, MatIconModule, MatExpansionModule, MatButtonToggleModule } from '@angular/material';
+// Angular Flex Layout
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   imports: [
     CommonModule,
     LayoutModule,
+    FlexLayoutModule,
     MatToolbarModule,
     MatGridListModule,
+    MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
+    MatButtonToggleModule,
     MatCheckboxModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
@@ -24,12 +29,15 @@ import { MatToolbarModule, MatGridListModule, MatFormFieldModule, MatInputModule
   ],
   exports: [
     LayoutModule,
+    FlexLayoutModule,
     MatToolbarModule,
     MatGridListModule,
+    MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
+    MatButtonToggleModule,
     MatCheckboxModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
