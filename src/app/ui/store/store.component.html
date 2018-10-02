@@ -1,45 +1,31 @@
-<mat-sidenav-container class="container">
-  <mat-sidenav #drawer id="drawer" [mode]="drawerMode" closed>
+<!-- <div class="category-checkbox" *ngFor="let category of categories">
+  <mat-checkbox [checked]="false" (change)="changeCategory(category)">
+    {{category}}
+  </mat-checkbox>
+</div> -->
 
-    <h3 style="margin-left: 15px">Genre</h3>
-
-    <div class="category-checkbox" *ngFor="let category of categories">
-      <mat-checkbox [checked]="false" (change)="changeCategory(category)">
-        {{category}}
-      </mat-checkbox>
+<mat-grid-list class="tile-grid" cols="{{columns}}" rowHeight="1:1.5">
+<mat-grid-tile class="tile" *ngFor="let product of productsOnPage">
+    <button class="add-to-cart-button" mat-mini-fab color="primary"
+    (click)="addProductToCart(product)">
+    <mat-icon aria-hidden="true">add_shopping_cart</mat-icon>
+  </button>
+  <img class="scale-img" src="../../../assets/open-book-blu.svg">
+  <div class="tile-footer">
+    <div class="price"> {{product.price}}$ </div>
+    <div class="description">
+      <div class="title"> {{product.title}} </div>
+      <div> {{product.author}} </div>
     </div>
-  </mat-sidenav>
-
-  <mat-sidenav-content>
-
-
-    <div>
-      <mat-grid-list class="tile-grid" cols="{{columns}}" rowHeight="1:1.5">
-        <mat-grid-tile class="tile" *ngFor="let product of productsOnPage">
-          <button class="add-to-cart-button" mat-mini-fab color="primary"
-          (click)="addProductToCart(product)">
-          <mat-icon aria-hidden="true">add_shopping_cart</mat-icon>
-        </button>
-        <img class="scale-img" src="../../../assets/open-book-blu.svg">
-        <div class="tile-footer">
-          <div class="price"> {{product.price}}$ </div>
-          <div class="description">
-            <div class="title"> {{product.title}} </div>
-            <div> {{product.author}} </div>
-          </div>
-        </div>
-      </mat-grid-tile>
-    </mat-grid-list>
   </div>
+</mat-grid-tile>
+</mat-grid-list>
 
-  <mat-paginator
-  [length]="productsInCategory.length"
-  [pageIndex]="selectedPage"
-  [pageSize]="productsPerPage"
-  [pageSizeOptions]="[4, 8, 16, 32]"
-  (page)="paginatorEvent($event)">
+
+<mat-paginator
+[length]="productsInCategory.length"
+[pageIndex]="selectedPage"
+[pageSize]="productsPerPage"
+[pageSizeOptions]="[4, 8, 16, 32]"
+(page)="paginatorEvent($event)">
 </mat-paginator>
-
-</mat-sidenav-content>
-
-</mat-sidenav-container>
