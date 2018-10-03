@@ -5,7 +5,7 @@ import { NgForm } from '@angular/forms';
 
 @Component({
     templateUrl: 'checkout.component.html',
-    styleUrls: ['checkout.component.css'],
+    styleUrls: ['checkout.component.scss'],
     selector: 'app-checkout'
 })
 export class CheckoutComponent {
