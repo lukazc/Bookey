@@ -1,8 +1,5 @@
 :host(){
+    flex-grow: 1;
+    display: flex;
     flex-direction: column;
-}
-
-router-outlet {
-    flex: 0;
-    display: none;
 }

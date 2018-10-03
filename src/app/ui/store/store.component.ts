@@ -18,7 +18,8 @@ export class StoreComponent implements OnInit {
 
   columns: number;
   observerSubscription: Subscription;
-  filterExpanded: boolean = false;
+  showFilter: boolean = false;
+  filterToggleColor: string = "primary";
 
   public selectedCategories: Set<string> = new Set;
 
@@ -89,9 +90,13 @@ export class StoreComponent implements OnInit {
     this.cart.addLine(product);
   }
 
-  toggleExpandFilter() {
-    this.filterExpanded = !this.filterExpanded;
-    console.log(this.filterExpanded);
+  toggleShowFilter() {
+    this.showFilter = !this.showFilter;
+    if (this.filterToggleColor === "primary") {
+      this.filterToggleColor = "accent";
+    } else {
+      this.filterToggleColor = "primary";
+    }
   }
 
 }

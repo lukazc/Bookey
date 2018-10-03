@@ -1,14 +1,17 @@
 /* this function styles the host container itself, app-store  */
 :host() {
+    min-height: 0;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    flex: 1;
 }
 
-.toggle-filter{
-    position: fixed;
-    right: 15px;
-    margin-right: 16px;
+.filter {
+    background-color: lightblue;
+
+    mat-expansion-panel-header {
+        min-height: 65px;
+    }
 }
 
 .category-checkbox {
@@ -16,6 +19,10 @@
     margin-left: 15px;
 }
 
+#product-grid-wrapper {
+    overflow: auto;
+    flex-grow: 1;
+}
 
 .tile-grid {
     background-color: azure;
