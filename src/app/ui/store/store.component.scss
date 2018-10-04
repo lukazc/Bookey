@@ -1,3 +1,5 @@
+@import "~sass/colors";
+
 /* this function styles the host container itself, app-store  */
 :host() {
     min-height: 0;
@@ -7,12 +9,35 @@
 }
 
 .filter {
-    background-color: lightblue;
+    z-index: 1000;
+    mat-expansion-panel {
+        padding-top: 5px;
+        background-color: $yellow;
 
-    mat-expansion-panel-header {
-        min-height: 65px;
+        mat-expansion-panel-header{
+            margin-bottom: 5px;
+
+            div {
+                height: fit-content;
+
+                button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    &.active {
+                        color: black;
+                    }
+
+                    span {
+                        margin-left: 5px;
+                    }
+                }
+            }
+        }
     }
 }
+
 
 .category-checkbox {
     margin-top: 15px;
@@ -22,50 +47,50 @@
 #product-grid-wrapper {
     overflow: auto;
     flex-grow: 1;
-}
 
-.tile-grid {
-    background-color: azure;
-}
+    .tile-grid {
+        background-color: azure;
 
-.tile-footer {
-    /* display: block !important; */
-    position: absolute;
-    bottom: 0;
-    height: fit-content !important;
-    width: 100%;
-    border-radius: 4%;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-align: center;
-    background: rgba(173, 175, 199, 0.75);
-}
+        .add-to-cart-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
 
-.title {
-    font-weight: bold;
-    font-size: 1.2em;
-    color: rgb(5, 0, 36);
-}
+        .tile-footer {
+            /* display: block !important; */
+            position: absolute;
+            bottom: 0;
+            height: fit-content !important;
+            width: 100%;
+            border-radius: 4%;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+            background: rgba(173, 175, 199, 0.75);
 
-.price {
-    font-size: 2em !important;
-    font-weight: bold;
-    color: maroon;
-    background-color: steelblue;
-}
+            .title {
+                font-weight: bold;
+            font-size: 1.2em;
+            color: rgb(5, 0, 36);
+            }
 
-.add-to-cart-button {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-}
+            .price {
+            font-size: 2em !important;
+            font-weight: bold;
+            color: maroon;
+            background-color: steelblue;
+            }
+        }
+    }
 
-.scale-img {
-    width: 80%;
-    margin: 0 auto 0;
-}
-
-.paginator {
-    position: fixed;
-    bottom: 0;
+    .paginator {
+        position: fixed;
+        bottom: 0;
     right: 0;
+    }
 }
+
+    .scale-img {
+        width: 80%;
+        margin: 0 auto 0;
+    }

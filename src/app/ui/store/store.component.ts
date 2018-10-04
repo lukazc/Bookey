@@ -19,7 +19,7 @@ export class StoreComponent implements OnInit {
   columns: number;
   observerSubscription: Subscription;
   showFilter: boolean = false;
-  filterToggleColor: string = "primary";
+  filterButtonClass: string = "";
 
   public selectedCategories: Set<string> = new Set;
 
@@ -92,10 +92,10 @@ export class StoreComponent implements OnInit {
 
   toggleShowFilter() {
     this.showFilter = !this.showFilter;
-    if (this.filterToggleColor === "primary") {
-      this.filterToggleColor = "accent";
+    if (this.showFilter) {
+      this.filterButtonClass = "active";
     } else {
-      this.filterToggleColor = "primary";
+      this.filterButtonClass = "";
     }
   }
 

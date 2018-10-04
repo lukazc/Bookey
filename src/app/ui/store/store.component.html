@@ -4,25 +4,27 @@
   </mat-checkbox>
 </div> -->
 
-<mat-accordion>
-  <mat-expansion-panel class="filter"
+<mat-accordion class="filter">
+  <mat-expansion-panel
   hideToggle [disabled]="true" [expanded]="showFilter">
   <mat-expansion-panel-header fxLayout="column" fxLayoutAlign="end center">
-    <mat-form-field fxFlexOffset="3px" fxFlexAlign="center">
-      <input matInput type="search"
-      placeholder="Search"
-      [(ngModel)]="value">
-      <button mat-button matSuffix mat-icon-button
-      (click)="value=''">
-      <mat-icon *ngIf="!value">search</mat-icon>
-      <mat-icon *ngIf="value">close</mat-icon>
-    </button>
-  </mat-form-field>
-  <button mat-icon-button fxFlexOffset="3px" fxFlexAlign="center"
-  [color]="filterToggleColor"
-  (click)="toggleShowFilter()">
-  <mat-icon>tune</mat-icon>
-</button>
+    <div>
+      <mat-form-field fxFlexOffset="3px" fxFlexAlign="center">
+        <input matInput type="text" placeholder="Search"
+        [(ngModel)]="value">
+        <button *ngIf="value"
+        mat-button mat-icon-button matSuffix
+        (click)="value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+    </mat-form-field>
+    <button mat-button fxFlexOffset="3px" fxFlexAlign="center"
+    [ngClass]="filterButtonClass"
+    (click)="toggleShowFilter()">
+    <mat-icon>tune</mat-icon>
+    <span>FILTER</span>
+  </button>
+</div>
 </mat-expansion-panel-header>
 <!-- left: add category select -->
 <!-- middle: add selected category badges ngFor -->
@@ -30,7 +32,7 @@
 </mat-expansion-panel>
 </mat-accordion>
 
-<div id="product-grid-wrapper" fxFlexOffset="10px">
+<div id="product-grid-wrapper">
   <mat-grid-list class="tile-grid" cols="{{columns}}" rowHeight="1:1.5">
     <mat-grid-tile *ngFor="let product of productsOnPage">
       <button class="add-to-cart-button" mat-mini-fab color="primary"
@@ -46,14 +48,14 @@
       </div>
     </div>
   </mat-grid-tile>
-  </mat-grid-list>
+</mat-grid-list>
 
 
-  <mat-paginator
-    [length]="productsInCategory.length"
-    [pageIndex]="selectedPage"
-    [pageSize]="productsPerPage"
-    [pageSizeOptions]="[4, 8, 16, 32]"
-    (page)="paginatorEvent($event)">
-  </mat-paginator>
+<mat-paginator
+[length]="productsInCategory.length"
+[pageIndex]="selectedPage"
+[pageSize]="productsPerPage"
+[pageSizeOptions]="[4, 8, 16, 32]"
+(page)="paginatorEvent($event)">
+</mat-paginator>
 </div>
