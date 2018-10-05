@@ -19,7 +19,7 @@
           </button>
     </mat-form-field>
     <button mat-button fxFlexOffset="3px" fxFlexAlign="center"
-    [ngClass]="filterButtonClass"
+    [class.active]="showFilter"
     (click)="toggleShowFilter()">
     <mat-icon>tune</mat-icon>
     <span>FILTER</span>

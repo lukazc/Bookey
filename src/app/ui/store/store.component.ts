@@ -19,7 +19,6 @@ export class StoreComponent implements OnInit {
   columns: number;
   observerSubscription: Subscription;
   showFilter: boolean = false;
-  filterButtonClass: string = "";
 
   public selectedCategories: Set<string> = new Set;
 
@@ -92,11 +91,6 @@ export class StoreComponent implements OnInit {
 
   toggleShowFilter() {
     this.showFilter = !this.showFilter;
-    if (this.showFilter) {
-      this.filterButtonClass = "active";
-    } else {
-      this.filterButtonClass = "";
-    }
   }
 
 }
