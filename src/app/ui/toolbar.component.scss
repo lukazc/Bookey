@@ -6,6 +6,6 @@
     z-index: 1001;
 }
 
-.toolbar-button {
+.toolbar-button:not(:last-child) {
     margin-right: 15px;
 }

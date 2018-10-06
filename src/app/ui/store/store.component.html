@@ -7,23 +7,29 @@
 <mat-accordion class="filter">
   <mat-expansion-panel
   hideToggle [disabled]="true" [expanded]="showFilter">
-  <mat-expansion-panel-header fxLayout="column" fxLayoutAlign="end center">
-    <div>
-      <mat-form-field fxFlexOffset="3px" fxFlexAlign="center">
-        <input matInput type="text" placeholder="Search"
-        [(ngModel)]="value">
-        <button *ngIf="value"
-        mat-button mat-icon-button matSuffix
-        (click)="value=''">
-            <mat-icon>close</mat-icon>
-          </button>
-    </mat-form-field>
-    <button mat-button fxFlexOffset="3px" fxFlexAlign="center"
+  <mat-expansion-panel-header>
+    <div id="filter-header">
+    <button mat-button
     [class.active]="showFilter"
     (click)="toggleShowFilter()">
     <mat-icon>tune</mat-icon>
     <span>FILTER</span>
   </button>
+  <div id="searchbox">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Search"
+      [(ngModel)]="value">
+      <button *ngIf="value"
+      mat-button mat-icon-button matSuffix
+      (click)="value=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+<button id="flex-counterbalance" mat-button>
+  <mat-icon>tune</mat-icon>
+  <span>FILTER</span>
+</button>
 </div>
 </mat-expansion-panel-header>
 <!-- left: add category select -->

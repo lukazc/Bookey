@@ -16,8 +16,14 @@
 
         mat-expansion-panel-header{
             margin-bottom: 5px;
+            padding: 0;
 
-            div {
+
+            #filter-header {
+                flex-grow: 1;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
                 height: fit-content;
 
                 button {
@@ -29,9 +35,20 @@
                         color: black;
                     }
 
+                    &#flex-counterbalance {
+                        visibility: hidden;
+                    }
+
                     span {
                         margin-left: 5px;
                     }
+                }
+
+                #searchbox {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 10px;
                 }
             }
         }
@@ -70,15 +87,15 @@
 
             .title {
                 font-weight: bold;
-            font-size: 1.2em;
-            color: rgb(5, 0, 36);
+                font-size: 1.2em;
+                color: rgb(5, 0, 36);
             }
 
             .price {
-            font-size: 2em !important;
-            font-weight: bold;
-            color: maroon;
-            background-color: steelblue;
+                font-size: 2em !important;
+                font-weight: bold;
+                color: maroon;
+                background-color: steelblue;
             }
         }
     }
@@ -86,11 +103,11 @@
     .paginator {
         position: fixed;
         bottom: 0;
-    right: 0;
+        right: 0;
     }
 }
 
-    .scale-img {
-        width: 80%;
-        margin: 0 auto 0;
-    }
+.scale-img {
+    width: 80%;
+    margin: 0 auto 0;
+}
