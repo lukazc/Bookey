@@ -4,6 +4,7 @@
 :host() {
     min-height: 0;
     flex-grow: 1;
+    max-width: 100vw;
     display: flex;
     flex-direction: column;
 }
@@ -12,7 +13,6 @@
     z-index: 1000;
     mat-expansion-panel {
         padding-top: 5px;
-        background-color: $yellow;
 
         mat-expansion-panel-header{
             margin-bottom: 5px;
@@ -55,43 +55,49 @@
     }
 }
 
-
-.category-checkbox {
-    margin-top: 15px;
-    margin-left: 15px;
-}
-
-#product-grid-wrapper {
+#catalog {
     overflow: auto;
-    flex-grow: 1;
 
-    .tile-grid {
-        background-color: azure;
+#item-grid {
+    width: 100%;
 
-        .add-to-cart-button {
-            position: absolute;
-            top: 5px;
-            right: 5px;
+    padding: 5px 0px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+
+    background-color: azure;
+
+    // Fix last row item spacing (when justify-content: space-between;
+    // &:after {
+    //     content: "";
+    //     flex: auto;
+    // }
+
+    .item{
+        height: 100%;
+        width: 140px;
+        margin: 5px;
+
+        .item-img {
+            max-height: 150px;
         }
 
-        .tile-footer {
-            /* display: block !important; */
-            position: absolute;
-            bottom: 0;
-            height: fit-content !important;
+        .item-details {
             width: 100%;
-            border-radius: 4%;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             text-align: center;
             background: rgba(173, 175, 199, 0.75);
 
-            .title {
+            .item-title {
                 font-weight: bold;
                 font-size: 1.2em;
                 color: rgb(5, 0, 36);
             }
 
-            .price {
+            .item-price {
                 font-size: 2em !important;
                 font-weight: bold;
                 color: maroon;
@@ -100,14 +106,9 @@
         }
     }
 
+
     .paginator {
-        position: fixed;
-        bottom: 0;
-        right: 0;
+        width: 100%;
     }
 }
-
-.scale-img {
-    width: 80%;
-    margin: 0 auto 0;
 }

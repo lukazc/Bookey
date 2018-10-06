@@ -1,5 +1,5 @@
-module.exports = function () { 
-    return { 
+module.exports = function () {
+    return {
         products: [
             { id: 1, title: "12 Rules for Life", author: "Jordan B. Peterson", category: "Psychology", description: "Learn to live properly", price: 15 },
             { id: 2, title: "Crime and Punishment", author: "Fyodor Dostoevsky", category: "Philosophical fiction", description: "A desperate young man has some questionable ideas", price: 5 },
@@ -9,8 +9,18 @@ module.exports = function () {
             { id: 6, title: "Code Complete: A Practical Handbook of Software Construction", author: "Steve McConnell", category: "Software development", description: "A compendium of software construction techniques.", price: 30 },
             { id: 7, title: "Three-body Problem", author: "Liu Cixin", category: "Science fiction", description: "A secret military project sends signals into space to establish contact with aliens.", price: 22.50 },
             { id: 8, title: "Permutation City", author: "Greg Egan", category: "Science fiction", description: "Explores quantum ontology through various philosophical aspects of artificial life and simulated reality.", price: 19.99 },
-            { id: 9, title: "Thinking: Fast and Slow", author: "Daniel Kahneman", category: "Psychology", description: "Summary of 50 years of psychological experiments.", price: 21.75 }
+            { id: 9, title: "Thinking: Fast and Slow", author: "Daniel Kahneman", category: "Psychology", description: "Summary of 50 years of psychological experiments.", price: 21.75 },
+            { id: 10, title: "Placeholder", author: "Place Holder", category: "Place", description: "Pla Ce Hold Er", price: 100 },
+            { id: 11, title: "Placeholder", author: "Place Holder", category: "Place", description: "Pla Ce Hold Er", price: 100 },
+            { id: 12, title: "Placeholder", author: "Place Holder", category: "Place", description: "Pla Ce Hold Er", price: 100 },
+            { id: 13, title: "Placeholder", author: "Place Holder", category: "Place", description: "Pla Ce Hold Er", price: 100 },
+            { id: 14, title: "Placeholder", author: "Place Holder", category: "Place", description: "Pla Ce Hold Er", price: 100 },
+            { id: 15, title: "Placeholder", author: "Place Holder", category: "Place", description: "Pla Ce Hold Er", price: 100 },
+            { id: 16, title: "Placeholder", author: "Place Holder", category: "Place", description: "Pla Ce Hold Er", price: 100 },
+            { id: 17, title: "Placeholder", author: "Place Holder", category: "Place", description: "Pla Ce Hold Er", price: 100 },
+            { id: 18, title: "Placeholder", author: "Place Holder", category: "Place", description: "Pla Ce Hold Er", price: 100 },
+            { id: 19, title: "Placeholder", author: "Place Holder", category: "Place", description: "Pla Ce Hold Er", price: 100 }
         ],
-        orders: [] 
-    }; 
+        orders: []
+    };
 };

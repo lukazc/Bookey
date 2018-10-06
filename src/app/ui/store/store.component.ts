@@ -16,29 +16,19 @@ import { Router } from '@angular/router';
 
 export class StoreComponent implements OnInit {
 
-  columns: number;
   observerSubscription: Subscription;
   showFilter: boolean = false;
 
   public selectedCategories: Set<string> = new Set;
 
-  public productsPerPage = 4;
+  public productsPerPage = 16;
   public selectedPage = 0;
 
   constructor(
     private router: Router,
     private _repository: ProductRepository,
     private cart: Cart,
-    breakpointObserver: BreakpointObserver) {
-    this.observerSubscription = breakpointObserver.observe([Breakpoints.XSmall])
-    .subscribe((result: BreakpointState) => {
-      if (result.matches) {
-        this.columns = 1;
-      } else {
-        this.columns = 4;
-      }
-    });
-  }
+    breakpointObserver: BreakpointObserver) {}
 
   ngOnInit() {}
 
