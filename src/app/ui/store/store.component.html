@@ -39,17 +39,17 @@
 </mat-accordion>
 
 <div id="catalog">
-  <div id="item-grid">
-    <div class="item" *ngFor="let product of productsOnPage">
-      <img class="item-img" src="https://via.placeholder.com/100x150">
-      <div class="item-details">
-        <div class="item-price"> {{product.price}}$ </div>
-        <div class="item-description">
-          <div class="item-title"> {{product.title}} </div>
-          <div> {{product.author}} </div>
-        </div>
+  <div id="catalog__grid">
+    <div class="item" [class.mat-elevation-z1]="true"
+    *ngFor="let product of productsOnPage">
+      <img class="item__img" src="https://via.placeholder.com/100x150">
+      <div class="item__details">
+        <div class="item__title"> {{product.title}} </div>
+        <div class="item__author"> {{product.author}} </div>
+        <div class="item__price"> {{ product.price | currency:"USD":"":"1.2-2"}} $ </div>
       </div>
-      <button class="add-to-cart-button" mat-flat-button color="primary"
+      <button mat-flat-button
+      class="item__action-button" [class.mat-elevation-z2]="true"
       (click)="addProductToCart(product)">
       Add to bag
     </button>

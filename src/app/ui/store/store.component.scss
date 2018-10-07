@@ -12,7 +12,11 @@
 .filter {
     z-index: 1000;
     mat-expansion-panel {
-        padding-top: 5px;
+        padding: 5px 8px 0px 8px;
+
+        @media screen and (max-width: 1200px) {
+            padding: 5px 0 0 0;
+        }
 
         mat-expansion-panel-header{
             margin-bottom: 5px;
@@ -58,57 +62,97 @@
 #catalog {
     overflow: auto;
 
-#item-grid {
-    width: 100%;
+    #catalog__grid {
+        width: calc(100%-20px);
+        padding: 0px 10px;
+        box-sizing: border-box;
 
-    padding: 5px 0px;
-    box-sizing: border-box;
-
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-
-    background-color: azure;
-
-    // Fix last row item spacing (when justify-content: space-between;
-    // &:after {
-    //     content: "";
-    //     flex: auto;
-    // }
-
-    .item{
-        height: 100%;
-        width: 140px;
-        margin: 5px;
-
-        .item-img {
-            max-height: 150px;
-        }
-
-        .item-details {
+        @media screen and (max-width: 1024px) {
             width: 100%;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            text-align: center;
-            background: rgba(173, 175, 199, 0.75);
+            padding: 0;
+        }
 
-            .item-title {
-                font-weight: bold;
-                font-size: 1.2em;
-                color: rgb(5, 0, 36);
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+
+        background-color: $beige;
+
+        // Fix last row item spacing (when justify-content: space-between;
+        // &:after {
+            //     content: "";
+            //     flex: auto;
+            // }
+
+            .item {
+                height: fit-content;
+                min-height: 255px;
+                width: 140px;
+                margin: 10px 20px;
+
+                background-color: white;
+                border-radius: 4px;
+
+                @media screen and (max-width: 1024px) {
+                    margin: 5px;
+                }
+
+                .item__img {
+                    height: 150px;
+                }
+
+                .item__details {
+                    width: 100%;
+                    font-family: 'Roboto', sans-serif;
+                    text-align: left;
+
+                    .item__title {
+                        font-weight: bold;
+                        font-size: 0.875rem;
+                        color: $dark-text;
+                        min-height: 32px;
+                        height: 32px;
+                        overflow: hidden;
+
+                        &:hover {
+                            height: fit-content;
+                            text-decoration: underline;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .item__author {
+                        font-size: 0.875rem;
+                        overflow: hidden;
+                        color: $light-text;
+
+                        &:hover {
+                            height: fit-content;
+                            text-decoration: underline;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .item__price {
+                        font-size: 1.125rem;
+                        color: #ff0072;
+                    }
+                }
+
+                .item__action-button {
+                    box-sizing: border-box;
+                    height: 36px;
+                    width: 100%;
+
+                    background: $lightblue;
+                    border-radius: 0;
+                    font-weight: bold;
+                }
             }
 
-            .item-price {
-                font-size: 2em !important;
-                font-weight: bold;
-                color: maroon;
-                background-color: steelblue;
+
+            .paginator {
+                width: 100%;
             }
         }
     }
-
-
-    .paginator {
-        width: 100%;
-    }
-}
-}
