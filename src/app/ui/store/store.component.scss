@@ -14,7 +14,7 @@
     mat-expansion-panel {
         padding: 5px 8px 0px 8px;
 
-        @media screen and (max-width: 1200px) {
+        @media screen and (max-width: 1024px) {
             padding: 5px 0 0 0;
         }
 
@@ -23,7 +23,7 @@
             padding: 0;
 
 
-            #filter-header {
+            #filter__header {
                 flex-grow: 1;
                 display: flex;
                 align-items: center;
@@ -48,7 +48,7 @@
                     }
                 }
 
-                #searchbox {
+                #filter__searchbox {
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -145,8 +145,13 @@
                     width: 100%;
 
                     background: $lightblue;
+                    transition: 0.3s;
                     border-radius: 0;
                     font-weight: bold;
+
+                    &:hover {
+                        background: $highlightblue;
+                    }
                 }
             }
 
