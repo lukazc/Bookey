@@ -21,7 +21,7 @@ export class StoreComponent implements OnInit {
 
   public selectedCategories: Set<string> = new Set;
 
-  public productsPerPage = 16;
+  public pageSize = 8;
   public selectedPage = 0;
 
   constructor(
@@ -47,32 +47,28 @@ export class StoreComponent implements OnInit {
     return this._repository.getProducts(this.selectedCategories);
   }
   get productsOnPage(): Product[] {
-    const pageIndex = this.selectedPage * this.productsPerPage;
-    const singlePageOfProducts = this.productsInCategory.slice(pageIndex, pageIndex + this.productsPerPage);
+    const pageIndex = this.selectedPage * this.pageSize;
+    const singlePageOfProducts = this.productsInCategory.slice(pageIndex, pageIndex + this.pageSize);
     return singlePageOfProducts;
   }
 
-  changePage(newPage: number) {
-    this.selectedPage = newPage;
-  }
-  changePageSize(newPageSize: number) {
-    this.productsPerPage = newPageSize;
-    this.changePage(0);
-  }
   get numberOfPages(): number {
     return Math.ceil
-    (this.productsInCategory.length / this.productsPerPage);
+    (this.productsInCategory.length / this.pageSize);
   }
 
-  paginatorEvent(event) {
-    const newPageIndex = event.pageIndex;
-    const newPageSize = event.pageSize;
-    if (this.productsPerPage !== newPageSize) {
-      this.changePageSize(newPageSize);
-    }
-    if (this.selectedPage !== newPageIndex) {
-      this.changePage(newPageIndex);
-    }
+  pagePrevious() {
+    this.selectedPage--;
+  }
+  pageNext() {
+    this.selectedPage++;
+  }
+  pageSelect(pageNumber) {
+    this.selectedPage = pageNumber - 1;
+  }
+  pageResize(size) {
+    this.pageSize = size;
+    this.pageSelect(1);
   }
 
   addProductToCart(product: Product) {

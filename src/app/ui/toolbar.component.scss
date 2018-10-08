@@ -1,3 +1,5 @@
+@import "~sass/breakpoints";
+
 :host() {
     flex-shrink: 0;
     position: sticky;
@@ -9,7 +11,7 @@
 #logo {
     margin-left: 8px;
 
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: $max-width-breakpoint) {
         margin:0;
     }
 }
@@ -21,7 +23,7 @@
     &:last-child {
         margin-right: 8px;
 
-        @media screen and (max-width: 1200px) {
+        @media screen and (max-width: $max-width-breakpoint) {
             margin:0;
         }
     }

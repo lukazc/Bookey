@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 // Material Design imports
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatFormFieldModule, MatInputModule,
-  MatSelectModule, MatButtonModule, MatCheckboxModule, MatPaginatorModule,
+  MatSelectModule, MatButtonModule, MatCheckboxModule,
   MatProgressSpinnerModule, MatIconModule, MatExpansionModule, MatButtonToggleModule } from '@angular/material';
 
 
@@ -20,7 +20,6 @@ import { MatToolbarModule, MatFormFieldModule, MatInputModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatCheckboxModule,
-    MatPaginatorModule,
     MatProgressSpinnerModule,
     MatIconModule
   ],
@@ -34,7 +33,6 @@ import { MatToolbarModule, MatFormFieldModule, MatInputModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatCheckboxModule,
-    MatPaginatorModule,
     MatProgressSpinnerModule,
     MatIconModule
   ],

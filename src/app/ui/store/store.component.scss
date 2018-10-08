@@ -1,4 +1,6 @@
 @import "~sass/colors";
+@import "~sass/breakpoints";
+@import "~sass/utils";
 
 /* this function styles the host container itself, app-store  */
 :host() {
@@ -14,7 +16,7 @@
     mat-expansion-panel {
         padding: 5px 8px 0px 8px;
 
-        @media screen and (max-width: 1024px) {
+        @media screen and (max-width: $max-width-breakpoint) {
             padding: 5px 0 0 0;
         }
 
@@ -37,10 +39,6 @@
 
                     &.active {
                         color: black;
-                    }
-
-                    &#flex-counterbalance {
-                        visibility: hidden;
                     }
 
                     span {
@@ -67,7 +65,7 @@
         padding: 0px 10px;
         box-sizing: border-box;
 
-        @media screen and (max-width: 1024px) {
+        @media screen and (max-width: $max-width-breakpoint) {
             width: 100%;
             padding: 0;
         }
@@ -87,23 +85,26 @@
             .item {
                 height: fit-content;
                 min-height: 255px;
-                width: 140px;
+                width: 180px;
                 margin: 10px 20px;
 
                 background-color: white;
                 border-radius: 4px;
 
-                @media screen and (max-width: 1024px) {
+                @media screen and (max-width: $max-width-breakpoint) {
+                    width: 140px;
                     margin: 5px;
                 }
 
                 .item__img {
                     height: 150px;
+                    max-width: calc(100% - 4px);
+                    padding: 2px;
                 }
 
                 .item__details {
-                    width: 100%;
-                    font-family: 'Roboto', sans-serif;
+                    width: calc(100% - 4px);
+                    padding: 0 2px;
                     text-align: left;
 
                     .item__title {
@@ -155,9 +156,31 @@
                 }
             }
 
+        }
 
-            .paginator {
-                width: 100%;
+        .paginator {
+            background: $beige;
+
+            padding: 16px 24px;
+
+            @media screen and (max-width: $max-width-breakpoint) {
+                padding: 8px 16px;
+            }
+
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: space-between;
+
+            .paginator__button {
+                cursor: pointer;
+                font-size: 0.9375rem;
+                font-weight: bold;
+
+                .paginator__button--text {
+                    text-transform: uppercase;
+                    text-decoration: underline;
+                }
             }
         }
     }
