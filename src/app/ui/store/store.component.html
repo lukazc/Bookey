@@ -60,15 +60,21 @@
   *ngIf="numberOfPages">
     <a class="paginator__button" [class.hidden] = "selectedPage < 1"
     (click)="pagePrevious()">
-      <span class="paginator__button--text">Previous</span>
+    Previous
     </a>
     <span class="paginator__indicator">
-      <span>{{selectedPage + 1}}</span>
+      <mat-form-field class="paginator__dropdown">
+        <mat-select [(value)]="selectedPage">
+          <mat-option *ngFor="let page of arrayOfPages" [value]="page">
+            {{page + 1}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
       <span> of {{numberOfPages}}</span>
     </span>
       <a class="paginator__button" [class.hidden] = "selectedPage === numberOfPages - 1"
       (click)="pageNext()">
-        <span class="paginator__button--text">Next</span>
+      Next
       </a>
   </div>
 </div>

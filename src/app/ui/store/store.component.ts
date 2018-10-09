@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
 import { Subscription } from 'rxjs';
@@ -55,6 +55,9 @@ export class StoreComponent implements OnInit {
   get numberOfPages(): number {
     return Math.ceil
     (this.productsInCategory.length / this.pageSize);
+  }
+  get arrayOfPages(): Array<number> {
+    return Array(this.numberOfPages).fill().map((x, i) => i);
   }
 
   pagePrevious() {

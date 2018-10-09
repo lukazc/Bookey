@@ -58,6 +58,9 @@
 }
 
 #catalog {
+    background-color: $beige;
+
+    flex-grow: 1;
     overflow: auto;
 
     #catalog__grid {
@@ -72,9 +75,7 @@
 
         display: flex;
         flex-flow: row wrap;
-        justify-content: flex-start;
-
-        background-color: $beige;
+        justify-content: space-between;
 
         // Fix last row item spacing (when justify-content: space-between;
         // &:after {
@@ -159,12 +160,11 @@
         }
 
         .paginator {
-            background: $beige;
 
-            padding: 16px 24px;
+            padding: 32px 24px;
 
             @media screen and (max-width: $max-width-breakpoint) {
-                padding: 8px 16px;
+                padding: 16px 16px;
             }
 
             display: flex;
@@ -172,15 +172,20 @@
             align-items: center;
             justify-content: space-between;
 
+            .paginator__indicator{
+                .paginator__dropdown {
+                    width: 30px;
+                }
+            }
+
             .paginator__button {
                 cursor: pointer;
+                width: 40px;
                 font-size: 0.9375rem;
                 font-weight: bold;
+                text-transform: uppercase;
+                text-decoration: underline;
 
-                .paginator__button--text {
-                    text-transform: uppercase;
-                    text-decoration: underline;
-                }
             }
         }
     }
