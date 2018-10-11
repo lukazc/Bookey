@@ -42,6 +42,7 @@ export class StoreComponent implements OnInit {
     } else {
       this.selectedCategories.add(newCategory);
     }
+    this.pageSelect(1);
   }
   get productsInCategory(): Product[] {
     return this._repository.getProducts(this.selectedCategories);
@@ -57,7 +58,7 @@ export class StoreComponent implements OnInit {
     (this.productsInCategory.length / this.pageSize);
   }
   get arrayOfPages(): Array<number> {
-    return Array(this.numberOfPages).fill().map((x, i) => i);
+    return Array(this.numberOfPages).fill(null).map((x, i) => i);
   }
 
   pagePrevious() {
@@ -80,6 +81,8 @@ export class StoreComponent implements OnInit {
 
   toggleShowFilter() {
     this.showFilter = !this.showFilter;
+  }
+  openCategoryPicker() {
   }
 
 }

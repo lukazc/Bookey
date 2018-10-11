@@ -53,6 +53,44 @@
                     margin-top: 10px;
                 }
             }
+
+        }
+
+        ::ng-deep .mat-expansion-panel-body{
+            padding: 0 0 16px 0;
+
+            @media screen and (max-width: $max-width-breakpoint) {
+                padding: 0 0 8px 0;
+            }
+
+            #filter__content {
+
+                .filter__content-top{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    height: fit-content;
+
+                    .filter__category-button {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .filter__category-button-text {
+                            margin-left: 5px;
+                        }
+                    }
+                    .filter__category-select{
+                        z-index: 1002;
+                    }
+                }
+
+                .filter__selected-categories{
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: center;
+                }
+            }
+
         }
     }
 }

@@ -32,9 +32,34 @@
   </button>
 </div>
 </mat-expansion-panel-header>
-<!-- left: add category select -->
-<!-- middle: add selected category badges ngFor -->
-<!-- right: add sort dropdown -->
+<div id="filter__content">
+  <div class="filter__content-top">
+  <!-- left: add category select -->
+  <button mat-button class="filter__category-button"
+  (click)="openCategoryPicker()">
+  <mat-icon>collections_bookmark</mat-icon>
+  <span class="filter__category-button-text">CATEGORIES</span>
+</button>
+  <!-- right: add sort dropdown -->
+  <mat-form-field class="filter__category-select">
+      <mat-select placeholder="Category" multiple>
+        <mat-option>All</mat-option>
+        <mat-option *ngFor="let category of categories" [value]="category"
+        (onSelectionChange)="changeCategory(category)">
+        {{category}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+    <!-- under: add selected category badges ngFor -->
+  <div class="filter__selected-categories">
+      <button *ngFor="let category of selectedCategories"
+        mat-stroked-button id="filter__selected-button"
+        (click)="changeCategory(category)">
+        <mat-icon>close</mat-icon>
+        <span class="filter__selected-button-text">{{category}}</span>
+      </button>
+    </div>
+</div>
 </mat-expansion-panel>
 </mat-accordion>
 
@@ -42,39 +67,39 @@
   <div id="catalog__grid">
     <div class="item" [class.mat-elevation-z1]="true"
     *ngFor="let product of productsOnPage">
-      <img class="item__img" src="https://dummyimage.com/136x150/572718/000000.png&text=+BOOK+COVER">
-      <div class="item__details">
-        <div class="item__title"> {{product.title}} </div>
-        <div class="item__author"> {{product.author}} </div>
-        <div class="item__price"> {{ product.price | currency:"USD":"":"1.2-2"}} $ </div>
-      </div>
-      <button mat-flat-button
-      class="item__action-button" [class.mat-elevation-z2]="true"
-      (click)="addProductToCart(product)">
-      Add to bag
-    </button>
-  </div>
-  </div>
+    <img class="item__img" src="https://dummyimage.com/136x150/572718/000000.png&text=+BOOK+COVER">
+    <div class="item__details">
+      <div class="item__title"> {{product.title}} </div>
+      <div class="item__author"> {{product.author}} </div>
+      <div class="item__price"> {{ product.price | currency:"USD":"":"1.2-2"}} $ </div>
+    </div>
+    <button mat-flat-button
+    class="item__action-button" [class.mat-elevation-z2]="true"
+    (click)="addProductToCart(product)">
+    Add to bag
+  </button>
+</div>
+</div>
 
-  <div class="paginator"
-  *ngIf="numberOfPages">
-    <a class="paginator__button" [class.hidden] = "selectedPage < 1"
-    (click)="pagePrevious()">
-    Previous
-    </a>
-    <span class="paginator__indicator">
-      <mat-form-field class="paginator__dropdown">
-        <mat-select [(value)]="selectedPage">
-          <mat-option *ngFor="let page of arrayOfPages" [value]="page">
-            {{page + 1}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <span> of {{numberOfPages}}</span>
-    </span>
-      <a class="paginator__button" [class.hidden] = "selectedPage === numberOfPages - 1"
-      (click)="pageNext()">
-      Next
-      </a>
-  </div>
+<div class="paginator"
+*ngIf="numberOfPages">
+<a class="paginator__button" [class.hidden] = "selectedPage < 1"
+(click)="pagePrevious()">
+Previous
+</a>
+<span class="paginator__indicator">
+  <mat-form-field class="paginator__dropdown">
+    <mat-select [(value)]="selectedPage">
+      <mat-option *ngFor="let page of arrayOfPages" [value]="page">
+        {{page + 1}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <span> of {{numberOfPages}}</span>
+</span>
+<a class="paginator__button" [class.hidden] = "selectedPage === numberOfPages - 1"
+(click)="pageNext()">
+Next
+</a>
+</div>
 </div>
