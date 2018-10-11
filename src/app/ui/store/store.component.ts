@@ -31,6 +31,8 @@ export class StoreComponent implements OnInit {
     'Price (high - low)'
   ];
 
+  private searchText: string = "";
+
   constructor(
     private router: Router,
     private _repository: ProductRepository,
@@ -51,18 +53,28 @@ export class StoreComponent implements OnInit {
       }
       this.pageSelect(1);
     }
+    get allProducts(): Product[] {
+      return this._repository.getProducts();
+    }
     get productsInCategory(): Product[] {
       return this._repository.getProducts(this.selectedCategories);
     }
+    get productsInSearchQuery(): Product[] {
+      const query = this.searchText.toLowerCase();
+      if (!query) { return this.productsInCategory; }
+      return this.productsInCategory.filter(product => {
+        return (product.title.toLowerCase().includes(query) || product.author.toLowerCase().includes(query));
+      });
+    }
     get productsOnPage(): Product[] {
       const pageIndex = this.selectedPage * this.pageSize;
-      const singlePageOfProducts = this.productsInCategory.slice(pageIndex, pageIndex + this.pageSize);
+      const singlePageOfProducts = this.productsInSearchQuery.slice(pageIndex, pageIndex + this.pageSize);
       return singlePageOfProducts;
     }
 
     get numberOfPages(): number {
       return Math.ceil
-      (this.productsInCategory.length / this.pageSize);
+      (this.productsInSearchQuery.length / this.pageSize);
     }
     get arrayOfPages(): Array<number> {
       return Array(this.numberOfPages).fill(null).map((x, i) => i);
@@ -96,16 +108,16 @@ export class StoreComponent implements OnInit {
     sortProducts(option: string) {
       switch (option) {
         case 'Price (low - high)':
-        this.productsInCategory.sort(this.sortProductsByPrice);
+        this.allProducts.sort(this.sortProductsByPrice);
         break;
         case 'Price (high - low)':
-        this.productsInCategory.sort(this.sortProductsByPrice).reverse();
+        this.allProducts.sort(this.sortProductsByPrice).reverse();
         break;
         case 'Title (A - Z)':
-        this.productsInCategory.sort(this.sortProductsByTitle);
+        this.allProducts.sort(this.sortProductsByTitle);
         break;
         case 'Title (Z - A)':
-        this.productsInCategory.sort(this.sortProductsByTitle).reverse();
+        this.allProducts.sort(this.sortProductsByTitle).reverse();
         break;
       }
       this.pageSelect(1);
@@ -119,5 +131,4 @@ export class StoreComponent implements OnInit {
       if (a === b) { return 0; }
       return a < b ? -1 : 1;
     }
-
   }

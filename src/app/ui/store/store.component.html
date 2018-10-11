@@ -18,10 +18,10 @@
     <div id="filter__searchbox">
       <mat-form-field>
         <input matInput type="text" placeholder="Search"
-        [(ngModel)]="value">
-        <button *ngIf="value"
+        [(ngModel)]="searchText">
+        <button *ngIf="searchText"
         mat-button mat-icon-button matSuffix
-        (click)="value=''">
+        (click)="searchText=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
@@ -43,7 +43,7 @@
   <!-- right: add sort dropdown -->
   <mat-form-field class="filter__sort">
       <mat-select placeholder="Sort By">
-        <mat-option *ngFor="let option of sortOptions" [value]="option"
+        <mat-option *ngFor="let option of sortOptions" value="option"
         (click)="sortProducts(option)">
         {{option}}</mat-option>
       </mat-select>
@@ -70,7 +70,7 @@
     <div class="item__details">
       <div class="item__title"> {{product.title}} </div>
       <div class="item__author"> {{product.author}} </div>
-      <div class="item__price"> {{ product.price | currency:"USD":"":"1.2-2"}} $ </div>
+      <div class="item__price"> {{ product.price | currency:"USD":"symbol-narrow":"1.2-2"}} $ </div>
     </div>
     <button mat-flat-button
     class="item__action-button" [class.mat-elevation-z2]="true"

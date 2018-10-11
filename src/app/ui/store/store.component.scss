@@ -81,6 +81,10 @@
                     }
                     .filter__sort{
                         padding-right: 16px;
+
+                        @media screen and (max-width: $max-width-breakpoint) {
+                            width: 80px;
+                        }
                     }
                 }
 

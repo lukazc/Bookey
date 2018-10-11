@@ -25,10 +25,10 @@
                 </td>
                 <td>{{line.product.title}}</td>
                 <td>
-                    {{line.product.price | currency:"USD":true:"1.2-2"}}
+                    {{line.product.price | currency:"USD":"symbol-narrow":"1.2-2"}}
                 </td>
                 <td>
-                    {{(line.lineTotal) | currency:"USD":true:"1.2-2" }}
+                    {{(line.lineTotal) | currency:"USD":"symbol-narrow":"1.2-2" }}
                 </td>
                 <td>
                     <button (click)="cart.removeLine(line.product.id)">
@@ -41,7 +41,7 @@
         <tr>
             <td colspan="3">Total:</td>
             <td>
-                {{cart.cartPrice | currency:"USD":true:"1.2-2"}}
+                {{cart.cartPrice | currency:"USD":"symbol-narrow":"1.2-2"}}
             </td>
         </tr>
     </tfoot>
