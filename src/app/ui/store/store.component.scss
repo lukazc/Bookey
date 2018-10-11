@@ -201,6 +201,18 @@
 
         }
 
+        .catalog__empty {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .catalog__empty-text {
+                margin-top: 100px;
+            }
+        }
+
         .paginator {
 
             padding: 32px 24px;

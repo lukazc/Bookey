@@ -80,6 +80,12 @@
 </div>
 </div>
 
+<div *ngIf="allProducts.length && !productsOnPage.length" class="catalog__empty">
+  <span class="catalog__empty-text">
+    Sorry, there are no items like that.
+  </span>
+</div>
+
 <div class="paginator"
 *ngIf="numberOfPages">
 <a class="paginator__button" [class.hidden] = "selectedPage < 1"
