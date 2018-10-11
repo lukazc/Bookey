@@ -41,12 +41,11 @@
   <span class="filter__category-button-text">CATEGORIES</span>
 </button>
   <!-- right: add sort dropdown -->
-  <mat-form-field class="filter__category-select">
-      <mat-select placeholder="Category" multiple>
-        <mat-option>All</mat-option>
-        <mat-option *ngFor="let category of categories" [value]="category"
-        (onSelectionChange)="changeCategory(category)">
-        {{category}}</mat-option>
+  <mat-form-field class="filter__sort">
+      <mat-select placeholder="Sort By">
+        <mat-option *ngFor="let option of sortOptions" [value]="option"
+        (click)="sortProducts(option)">
+        {{option}}</mat-option>
       </mat-select>
     </mat-form-field>
   </div>

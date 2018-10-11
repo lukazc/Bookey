@@ -12,7 +12,7 @@
 }
 
 .filter {
-    z-index: 1000;
+    z-index: 998;
     mat-expansion-panel {
         padding: 5px 8px 0px 8px;
 
@@ -79,8 +79,8 @@
                             margin-left: 5px;
                         }
                     }
-                    .filter__category-select{
-                        z-index: 1002;
+                    .filter__sort{
+                        padding-right: 16px;
                     }
                 }
 
