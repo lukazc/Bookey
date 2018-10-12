@@ -18,7 +18,7 @@
     <div id="filter__searchbox">
       <mat-form-field>
         <input matInput type="text" placeholder="Search"
-        [(ngModel)]="searchText">
+        [(ngModel)]="searchText" (keyup)="pageSelect(1)">
         <button *ngIf="searchText"
         mat-button mat-icon-button matSuffix
         (click)="searchText=''">
@@ -34,18 +34,27 @@
 </mat-expansion-panel-header>
 <div id="filter__content">
   <div class="filter__content-top">
-  <!-- left: add category select -->
-  <mat-form-field class="filter__category-picker" floatLabel="never">
-    <mat-label>Choose Category</mat-label>
-    <mat-select multiple placeholder="Category"
-    [(ngModel)]="selectedCategories">
+    <!-- page size dropdown -->
+    <mat-form-field class="filter__page-size">
+      <mat-select placeholder="Page size">
+        <mat-option *ngFor="let size of pageSizeOptions" [value]="size"
+        (click)="pageResize(size)">
+        {{size}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- category select dropdown -->
+    <mat-form-field class="filter__category-picker" floatLabel="never">
+      <mat-label>Choose Category</mat-label>
+      <mat-select multiple placeholder="Category"
+      [(ngModel)]="selectedCategories">
       <mat-select-trigger>Choose Category</mat-select-trigger>
-      <mat-option *ngFor="let category of categories" [value]="category">
-      {{category}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <!-- right: add sort dropdown -->
-  <mat-form-field class="filter__sort">
+      <mat-option *ngFor="let category of categories" [value]="category"
+      (click)="pageSelect(1)">
+        {{category}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- sort dropdown -->
+    <mat-form-field class="filter__sort">
       <mat-select placeholder="Sort By">
         <mat-option *ngFor="let option of sortOptions" [value]="option"
         (click)="sortProducts(option)">
@@ -53,15 +62,15 @@
       </mat-select>
     </mat-form-field>
   </div>
-    <!-- under: add selected category badges ngFor -->
+  <!-- selected category badges -->
   <div class="filter__selected-categories">
-      <button *ngFor="let category of selectedCategories"
-        mat-stroked-button id="filter__selected-button"
-        (click)="changeCategory(category, categoryModel)">
-        <mat-icon>close</mat-icon>
-        <span class="filter__selected-button-text">{{category}}</span>
-      </button>
-    </div>
+    <button *ngFor="let category of selectedCategories"
+    mat-stroked-button id="filter__selected-button"
+    (click)="changeCategory(category, categoryModel)">
+    <mat-icon>close</mat-icon>
+    <span class="filter__selected-button-text">{{category}}</span>
+  </button>
+</div>
 </div>
 </mat-expansion-panel>
 </mat-accordion>
@@ -84,17 +93,14 @@
 </div>
 </div>
 
-<div *ngIf="allProducts.length && !productsOnPage.length" class="catalog__empty">
-  <span class="catalog__empty-text">
-    Sorry, there are no items like that.
-  </span>
-</div>
 
-<div class="paginator"
-*ngIf="numberOfPages">
-<a class="paginator__button" [class.hidden] = "selectedPage < 1"
-(click)="pagePrevious()">
-Previous
+
+<div class="paginator_wrapper">
+  <div class="paginator"
+  *ngIf="numberOfPages">
+  <a class="paginator__button" [class.hidden] = "selectedPage < 1"
+  (click)="pagePrevious()">
+  Back
 </a>
 <span class="paginator__indicator">
   <mat-form-field class="paginator__dropdown">
@@ -111,4 +117,12 @@ Previous
 Next
 </a>
 </div>
+</div>
+
+<div *ngIf="allProducts.length && !productsOnPage.length" class="catalog__empty">
+    <span class="catalog__empty-text">
+      Sorry, there are no items like that.
+    </span>
+  </div>
+
 </div>

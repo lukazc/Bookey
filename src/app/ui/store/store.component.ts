@@ -20,10 +20,11 @@ export class StoreComponent implements OnInit {
   observerSubscription: Subscription;
   showFilter: boolean = false;
 
-  public selectedCategories: string[] = [];
+  private selectedCategories: string[] = [];
 
-  public pageSize = 8;
-  public selectedPage = 0;
+  private pageSizeOptions = [8, 16, 32, 64];
+  private pageSize = 16;
+  private selectedPage = 0;
 
   private sortOptions: string[] = [
     'Price (low - high)',
@@ -65,7 +66,9 @@ export class StoreComponent implements OnInit {
       const query = this.searchText.toLowerCase();
       if (!query) { return this.productsInCategory; }
       return this.productsInCategory.filter(product => {
-        return (product.title.toLowerCase().includes(query) || product.author.toLowerCase().includes(query));
+        return (product.title.toLowerCase().includes(query)
+        || product.author.toLowerCase().includes(query)
+        || product.category.toLowerCase().includes(query));
       });
     }
     get productsOnPage(): Product[] {
