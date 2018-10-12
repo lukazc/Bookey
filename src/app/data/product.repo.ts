@@ -16,12 +16,12 @@ export class ProductRepository {
         });
     }
 
-    getProducts(categories: Set<string> = new Set): Product[] {
-        if (categories.size === 0) {
+    getProducts(selectedCategories: string[] = []): Product[] {
+        if (selectedCategories.length === 0) {
             return this.products;
         } else {
             return this.products.filter(
-                p => (categories.has(p.category))
+                p => (selectedCategories.includes(p.category))
                 );
         }
     }

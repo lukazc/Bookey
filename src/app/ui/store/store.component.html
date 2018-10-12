@@ -35,15 +35,19 @@
 <div id="filter__content">
   <div class="filter__content-top">
   <!-- left: add category select -->
-  <button mat-button class="filter__category-button"
-  (click)="openCategoryPicker()">
-  <mat-icon>collections_bookmark</mat-icon>
-  <span class="filter__category-button-text">CATEGORIES</span>
-</button>
+  <mat-form-field class="filter__category-picker" floatLabel="never">
+    <mat-label>Choose Category</mat-label>
+    <mat-select multiple placeholder="Category"
+    [(ngModel)]="selectedCategories">
+      <mat-select-trigger>Choose Category</mat-select-trigger>
+      <mat-option *ngFor="let category of categories" [value]="category">
+      {{category}}</mat-option>
+    </mat-select>
+  </mat-form-field>
   <!-- right: add sort dropdown -->
   <mat-form-field class="filter__sort">
       <mat-select placeholder="Sort By">
-        <mat-option *ngFor="let option of sortOptions" value="option"
+        <mat-option *ngFor="let option of sortOptions" [value]="option"
         (click)="sortProducts(option)">
         {{option}}</mat-option>
       </mat-select>
@@ -53,7 +57,7 @@
   <div class="filter__selected-categories">
       <button *ngFor="let category of selectedCategories"
         mat-stroked-button id="filter__selected-button"
-        (click)="changeCategory(category)">
+        (click)="changeCategory(category, categoryModel)">
         <mat-icon>close</mat-icon>
         <span class="filter__selected-button-text">{{category}}</span>
       </button>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModel } from '@angular/forms';
 
 import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
 import { Subscription } from 'rxjs';
@@ -19,7 +20,7 @@ export class StoreComponent implements OnInit {
   observerSubscription: Subscription;
   showFilter: boolean = false;
 
-  public selectedCategories: Set<string> = new Set;
+  public selectedCategories: string[] = [];
 
   public pageSize = 8;
   public selectedPage = 0;
@@ -45,13 +46,14 @@ export class StoreComponent implements OnInit {
     get categories(): string[] {
       return this._repository.getCategories();
     }
-    changeCategory(newCategory?: string) {
-      if (this.selectedCategories.has(newCategory)) {
-        this.selectedCategories.delete(newCategory);
+    changeCategory(newCategory: string) {
+      if (this.selectedCategories.includes(newCategory)) {
+        this.selectedCategories.splice(this.selectedCategories.indexOf(newCategory), 1);
       } else {
-        this.selectedCategories.add(newCategory);
+        this.selectedCategories.push(newCategory);
       }
       this.pageSelect(1);
+      this.selectedCategories = this.selectedCategories.slice(0);
     }
     get allProducts(): Product[] {
       return this._repository.getProducts();

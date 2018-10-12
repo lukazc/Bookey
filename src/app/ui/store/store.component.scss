@@ -57,10 +57,10 @@
         }
 
         ::ng-deep .mat-expansion-panel-body{
-            padding: 0 0 16px 0;
+            padding: 0 16px 16px 16px;
 
             @media screen and (max-width: $max-width-breakpoint) {
-                padding: 0 0 8px 0;
+                padding: 0 8px 8px 8px;
             }
 
             #filter__content {
@@ -71,16 +71,11 @@
                     justify-content: space-between;
                     height: fit-content;
 
-                    .filter__category-button {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        .filter__category-button-text {
-                            margin-left: 5px;
-                        }
+                    .filter__category-picker {
+                        width: 140px;
                     }
                     .filter__sort{
-                        padding-right: 16px;
+                        width: 140px;
 
                         @media screen and (max-width: $max-width-breakpoint) {
                             width: 80px;
