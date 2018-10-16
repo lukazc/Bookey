@@ -171,13 +171,18 @@
                         font-size: 0.875rem;
                         color: $dark-text;
                         min-height: 32px;
-                        height: 32px;
                         overflow: hidden;
+
+                        max-height: 32px;
+                        transition: max-height 0.3s ease-in;
 
                         &:hover {
                             height: fit-content;
                             text-decoration: underline;
                             cursor: pointer;
+
+                            max-height: 128px;
+                            transition: max-height 0.3s ease-in;
                         }
                     }
 
@@ -186,10 +191,16 @@
                         overflow: hidden;
                         color: $light-text;
 
+                        max-height: 16px;
+                        transition: max-height 0.3s ease-in;
+
                         &:hover {
                             height: fit-content;
                             text-decoration: underline;
                             cursor: pointer;
+
+                            max-height: 64px;
+                            transition: max-height 0.3s ease-in;
                         }
                     }
 

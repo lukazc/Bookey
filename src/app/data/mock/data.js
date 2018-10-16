@@ -18,8 +18,8 @@ module.exports = function () {
             { id: 15, title: "Placeholder", author: "Place Holder", category: "Place", description: "Pla Ce Hold Er", price: 100 },
             { id: 16, title: "Placeholder", author: "Place Holder", category: "Place", description: "Pla Ce Hold Er", price: 100 },
             { id: 17, title: "Placeholder", author: "Place Holder", category: "Place", description: "Pla Ce Hold Er", price: 100 },
-            { id: 18, title: "Placeholder", author: "Place Holder", category: "Place", description: "Pla Ce Hold Er", price: 100 },
-            { id: 19, title: "Placeholder", author: "Place Holder", category: "Place", description: "Pla Ce Hold Er", price: 100 }
+            { id: 18, title: "Placeholder", author: "Place Holder, Another Author, Yeti Dudes", category: "Place", description: "Pla Ce Hold Er", price: 100 },
+            { id: 19, title: "Placeholder", author: "Place Holder, Another Name, Nicky Tock, Justin Case, Ann Other", category: "Place", description: "Pla Ce Hold Er", price: 100 }
         ],
         orders: []
     };
