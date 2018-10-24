@@ -77,19 +77,18 @@
 
 <div id="catalog">
   <div id="catalog__grid">
-    <div class="item" [class.mat-elevation-z1]="true"
-    *ngFor="let product of productsOnPage">
-    <img class="item__img" src="https://dummyimage.com/136x150/572718/000000.png&text=+BOOK+COVER">
-    <div class="item__details">
-      <div class="item__title"> {{product.title}} </div>
-      <div class="item__author"> {{product.author}} </div>
-      <div class="item__price"> {{ product.price | currency:"USD":"symbol-narrow":"1.2-2"}} $ </div>
-    </div>
-    <button mat-flat-button
-    class="item__action-button" [class.mat-elevation-z2]="true"
-    (click)="addProductToCart(product)">
-    Add to bag
-  </button>
+    <div class="item" *ngFor="let product of productsOnPage">
+      <button mat-flat-button
+        class="item__action-button hidden" [class.mat-elevation-z2]="true"
+        (click)="addProductToCart(product)">
+        Add to bag
+      </button>
+      <img class="item__img" src="https://dummyimage.com/120x150/572718/000000.png&text=+BOOK+COVER">
+      <div class="item__details">
+        <div class="item__title"> {{product.title}} </div>
+        <div class="item__author"> {{product.author}} </div>
+        <div class="item__price"> {{ product.price | currency:"USD":"symbol-narrow":"1.2-2"}}</div>
+      </div>
 </div>
 </div>
 

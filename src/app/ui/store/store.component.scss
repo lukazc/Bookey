@@ -16,7 +16,7 @@
     mat-expansion-panel {
         padding: 5px 8px 0px 8px;
 
-        @media screen and (max-width: $max-width-breakpoint) {
+        @media screen and (max-width: $md-breakpoint) {
             padding: 5px 0 0 0;
         }
 
@@ -59,7 +59,7 @@
         ::ng-deep .mat-expansion-panel-body{
             padding: 0 16px;
 
-            @media screen and (max-width: $max-width-breakpoint) {
+            @media screen and (max-width: $md-breakpoint) {
                 padding: 0 8px;
             }
 
@@ -76,14 +76,14 @@
                     justify-content: space-between;
                     height: fit-content;
 
-                    @media screen and (max-width: $max-width-breakpoint) {
+                    @media screen and (max-width: $md-breakpoint) {
                         width: 304px;
                     }
 
                     .filter__page-size{
                         width: 140px;
 
-                        @media screen and (max-width: $max-width-breakpoint) {
+                        @media screen and (max-width: $md-breakpoint) {
                             width: 80px;
                         }
                     }
@@ -94,7 +94,7 @@
                     .filter__sort{
                         width: 140px;
 
-                        @media screen and (max-width: $max-width-breakpoint) {
+                        @media screen and (max-width: $md-breakpoint) {
                             width: 80px;
                         }
                     }
@@ -122,13 +122,12 @@
     overflow: auto;
 
     #catalog__grid {
-        width: calc(100%-20px);
-        padding: 0px 10px;
+        padding: 10px 40px;
         box-sizing: border-box;
 
-        @media screen and (max-width: $max-width-breakpoint) {
+        @media screen and (max-width: $md-breakpoint) {
             width: 100%;
-            padding: 0;
+            padding: 5px 5px;
         }
 
         display: flex;
@@ -142,38 +141,54 @@
             // }
 
             .item {
+                position: relative;
+
+                flex-basis: 25%;
+
                 height: fit-content;
-                min-height: 255px;
-                width: 180px;
-                margin: 10px 20px;
+                min-height: 360px;
+                max-height: 360px;
+                min-width: 180px;
 
-                background-color: white;
-                border-radius: 4px;
 
-                @media screen and (max-width: $max-width-breakpoint) {
-                    width: 140px;
-                    margin: 5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                @media screen and (max-width: $md-breakpoint) {
+                    min-width: 140px;
+                    min-height: 300px;
+                }
+
+                @media screen and (max-width: $s-breakpoint) {
+                    flex-basis: 33%;
+                }
+
+                @media screen and (max-width: $xs-breakpoint) {
+                    flex-basis: 50%;
                 }
 
                 .item__img {
-                    height: 150px;
-                    max-width: calc(100% - 4px);
-                    padding: 2px;
+                    min-height: 210px;
+                    max-height: 252px;
+                    max-width: 95%;
                 }
 
                 .item__details {
-                    width: calc(100% - 4px);
-                    padding: 0 2px;
-                    text-align: left;
+                    width: 100%;
+                    text-align: center;
 
                     .item__title {
-                        font-weight: bold;
-                        font-size: 0.875rem;
+                        margin: 5px 0 0 0;
+                        font-family: Georgia, 'Times New Roman', Times, serif;
+                        font-weight: 500;
+                        font-size: 1.0625rem;
                         color: $dark-text;
-                        min-height: 32px;
+                        min-height: 40px;
                         overflow: hidden;
 
-                        max-height: 32px;
+                        max-height: 40px;
                         transition: max-height 0.3s ease-in;
 
                         &:hover {
@@ -187,7 +202,9 @@
                     }
 
                     .item__author {
+                        margin: 4px 0 4px 0;
                         font-size: 0.875rem;
+                        font-weight: 600;
                         overflow: hidden;
                         color: $light-text;
 
@@ -205,8 +222,12 @@
                     }
 
                     .item__price {
-                        font-size: 1.125rem;
-                        color: #ff0072;
+                        margin: 8px 0 0 0;
+
+                        font-family: Georgia, 'Times New Roman', Times, serif;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        color: $dark-text;
                     }
                 }
 
@@ -215,14 +236,26 @@
                     height: 36px;
                     width: 100%;
 
+                    position: absolute;
+                    top: 5px;
+
                     background: $lightblue;
                     transition: 0.3s;
-                    border-radius: 0;
+                    border-radius: 5%;
                     font-weight: bold;
 
                     &:hover {
                         background: $highlightblue;
                     }
+
+                    @media screen and (min-width: $md-breakpoint) {
+                        width: 180px;
+                    }
+                }
+
+                &:hover .hidden {
+                    visibility: visible;
+                    opacity: 0.9;
                 }
             }
 
@@ -251,7 +284,7 @@
                 width: 320px;
                 padding: 32px 24px;
 
-                @media screen and (max-width: $max-width-breakpoint) {
+                @media screen and (max-width: $md-breakpoint) {
                     padding: 16px 16px;
                 }
 
