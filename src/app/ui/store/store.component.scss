@@ -16,6 +16,8 @@
     mat-expansion-panel {
         padding: 5px 8px 0px 8px;
 
+        background: $yellow;
+
         @media screen and (max-width: $md-breakpoint) {
             padding: 5px 0 0 0;
         }
@@ -122,17 +124,20 @@
     overflow: auto;
 
     #catalog__grid {
-        padding: 10px 40px;
+        padding: 30px 40px;
         box-sizing: border-box;
+
+        max-width: 1200px;
+        margin: 0 auto;
 
         @media screen and (max-width: $md-breakpoint) {
             width: 100%;
-            padding: 5px 5px;
+            padding: 10px 5px;
         }
 
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-between;
+        justify-content: flex-start;
 
         // Fix last row item spacing (when justify-content: space-between;
         // &:after {
@@ -146,10 +151,11 @@
                 flex-basis: 25%;
 
                 height: fit-content;
-                min-height: 360px;
+                // min-height: 360px;
                 max-height: 360px;
                 min-width: 180px;
 
+                padding: 0 0 35px 0;
 
                 display: flex;
                 flex-direction: column;
@@ -158,11 +164,11 @@
 
                 @media screen and (max-width: $md-breakpoint) {
                     min-width: 140px;
-                    min-height: 300px;
                 }
 
                 @media screen and (max-width: $s-breakpoint) {
                     flex-basis: 33%;
+                    // min-height: 280px;
                 }
 
                 @media screen and (max-width: $xs-breakpoint) {
@@ -170,9 +176,9 @@
                 }
 
                 .item__img {
-                    min-height: 210px;
                     max-height: 252px;
-                    max-width: 95%;
+                    max-width: 180px;
+                    width: 80%;
                 }
 
                 .item__details {
@@ -234,10 +240,10 @@
                 .item__action-button {
                     box-sizing: border-box;
                     height: 36px;
-                    width: 100%;
+                    width: 85%;
 
                     position: absolute;
-                    top: 5px;
+                    top: 5%;
 
                     background: $lightblue;
                     transition: 0.3s;
@@ -249,7 +255,7 @@
                     }
 
                     @media screen and (min-width: $md-breakpoint) {
-                        width: 180px;
+                        width: 200px;
                     }
                 }
 
