@@ -1,0 +1,11 @@
+<div class="logo">
+    <mat-icon class="logo__icon">shopping_basket</mat-icon>
+    <span class="logo__text">
+        Your shopping bag
+    </span>
+</div>
+<div class="summary" [ngPlural]="cart.itemCount">
+    <div class="summary__count">{{cart.itemCount}}</div>
+    <ng-template ngPluralCase="one">ITEM</ng-template>
+    <ng-template ngPluralCase="other">ITEMS</ng-template>
+</div>

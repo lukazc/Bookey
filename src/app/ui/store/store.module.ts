@@ -9,6 +9,7 @@ import { DataModule } from '@app-data/data.module';
 
 import { StoreComponent } from './store.component';
 import { CartShortSummaryComponent } from '@app-ui/store/cart/cart-short-summary.component';
+import { CartBarComponent } from '@app-ui/store/cart/cart-bar-component';
 import { CartComponent } from '@app-ui/store/cart/cart.component';
 import { CheckoutComponent } from '@app-ui/store/checkout/checkout.component';
 
@@ -16,7 +17,7 @@ import { CheckoutComponent } from '@app-ui/store/checkout/checkout.component';
   imports: [
     BrowserModule, RouterModule, FormsModule, MaterialDesignModule, DataModule
   ],
-  declarations: [ StoreComponent, CartShortSummaryComponent, CartComponent, CheckoutComponent ],
+  declarations: [ StoreComponent, CartShortSummaryComponent, CartBarComponent, CartComponent, CheckoutComponent ],
   exports: [ StoreComponent, CartComponent, CheckoutComponent ]
 })
 export class StoreModule { }

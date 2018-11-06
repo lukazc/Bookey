@@ -87,16 +87,24 @@ export class StoreComponent implements OnInit {
 
     pagePrevious() {
       this.selectedPage--;
+      this.scrollToTop();
     }
     pageNext() {
       this.selectedPage++;
+      this.scrollToTop();
     }
     pageSelect(pageNumber) {
       this.selectedPage = pageNumber - 1;
+      this.scrollToTop();
     }
     pageResize(size) {
       this.pageSize = size;
       this.pageSelect(1);
+      this.scrollToTop();
+    }
+
+    scrollToTop() {
+      document.getElementById('catalog').scrollTop = 0;
     }
 
     addProductToCart(product: Product) {
@@ -106,9 +114,6 @@ export class StoreComponent implements OnInit {
     toggleShowFilter() {
       this.showFilter = !this.showFilter;
     }
-    openCategoryPicker() {
-    }
-
 
     sortProducts(option: string) {
       switch (option) {
