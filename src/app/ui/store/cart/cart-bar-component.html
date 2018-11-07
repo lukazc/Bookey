@@ -1,11 +1,19 @@
-<div class="logo">
-    <mat-icon class="logo__icon">shopping_basket</mat-icon>
-    <span class="logo__text">
-        Your shopping bag
-    </span>
+<div class="left">
+    <mat-icon class="logo">shopping_basket</mat-icon>
+    <div class="quantity" [ngPlural]="cart.itemCount">
+        <div class="quantity__number">{{cart.itemCount}}</div>
+        <ng-template ngPluralCase="one">ITEM</ng-template>
+        <ng-template ngPluralCase="other">ITEMS</ng-template>
+    </div>
 </div>
-<div class="summary" [ngPlural]="cart.itemCount">
-    <div class="summary__count">{{cart.itemCount}}</div>
-    <ng-template ngPluralCase="one">ITEM</ng-template>
-    <ng-template ngPluralCase="other">ITEMS</ng-template>
+<div class="right">
+    <div class="total">
+        {{cart.cartPrice | currency:"USD":"symbol-narrow":"1.2-2"}}
+    </div>
+    <div class="action">
+        <button mat-raised-button color="primary" class="action__order"
+        routerLink="/checkout" [disabled]="cart.itemCount == 0">Order</button>
+        <button mat-raised-button class="action__details"
+        routerLink="/cart" [disabled]="cart.itemCount == 0">Details</button>
+    </div>
 </div>

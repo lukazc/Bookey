@@ -2,7 +2,7 @@
 @import "~sass/breakpoints";
 
 :host() {
-    min-height: 70px;
+    min-height: 80px;
 
     display: flex;
     flex-direction: row;
@@ -17,6 +17,7 @@
 
     background: $yellow;
     color: $dark-text;
+    font-weight: 600;
 
     padding: 0 24px;
 
@@ -25,38 +26,66 @@
     }
 }
 
-.logo {
+.left {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    .logo__icon {
+    .logo {
         height: fit-content;
         width: fit-content;
 
-        font-size: 3rem;
-        line-height: 60px;
+        font-size: 4rem;
+        // line-height: 60px;
         color: $light-text;
     }
 
-    .logo__text {
-        margin-left: 8px;
+    .quantity {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        margin-left: 16px;
+        text-align: center;
+
+        font-size: 0.875rem;
+
+        .quantity__number {
+            font-size: 2rem;
+            font-weight: 500;
+        }
     }
+
 }
 
-.summary {
+
+.right {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    margin-right: 56px;
-    text-align: center;
+    .total {
+        margin-right: 16px;
 
-    font-size: 0.875rem;
-
-    .summary__count {
-        font-size: 1.625rem;
+        font-size: 2rem;
+        font-weight: normal;
     }
-}
 
+    .action {
+        height: 100%;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .action__order {
+            margin-right: 8px;
+        }
+        .action__details {
+
+        }
+    }
+
+}
