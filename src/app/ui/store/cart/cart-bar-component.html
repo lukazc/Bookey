@@ -1,19 +1,44 @@
-<div class="left">
-    <mat-icon class="logo">shopping_basket</mat-icon>
-    <div class="quantity" [ngPlural]="cart.itemCount">
-        <div class="quantity__number">{{cart.itemCount}}</div>
-        <ng-template ngPluralCase="one">ITEM</ng-template>
-        <ng-template ngPluralCase="other">ITEMS</ng-template>
+<div *ngIf="isCollapsed" class="collapsed">
+    <div class="left">
+        <mat-icon class="logo">shopping_basket</mat-icon>
+    </div>
+    <div class="right">
+        <div class="symbol">#</div>
+        <div class="quantity">
+            <div class="quantity__number">{{cart.itemCount}}</div>
+
+        </div>
+        <div class="total">
+            <div class="symbol">$</div>
+            <div class="total__amount">
+                {{cart.cartPrice | number:'1.2-2'}}
+            </div>
+        </div>
+        <div class="action">
+            <button mat-raised-button color="primary" class="action__order"
+            routerLink="/checkout" [disabled]="cart.itemCount == 0">Order</button>
+            <button mat-raised-button class="action__details"
+            routerLink="/cart" [disabled]="cart.itemCount == 0">Details</button>
+        </div>
     </div>
 </div>
-<div class="right">
-    <div class="total">
-        {{cart.cartPrice | currency:"USD":"symbol-narrow":"1.2-2"}}
+
+<div *ngIf="!isCollapsed" class="expanded">
+    <mat-icon class="logo--big">shopping_basket</mat-icon>
+    <div class="products">
+        here
     </div>
     <div class="action">
-        <button mat-raised-button color="primary" class="action__order"
+        <div class="total">
+            <div class="symbol">$</div>
+            <div class="total__amount">
+                {{cart.cartPrice | number:'1.2-2'}}
+            </div>
+        </div>
+        <button mat-raised-button color="primary"
         routerLink="/checkout" [disabled]="cart.itemCount == 0">Order</button>
-        <button mat-raised-button class="action__details"
+        <button mat-raised-button
         routerLink="/cart" [disabled]="cart.itemCount == 0">Details</button>
+
     </div>
 </div>

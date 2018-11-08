@@ -2,13 +2,6 @@
 @import "~sass/breakpoints";
 
 :host() {
-    min-height: 80px;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: stretch;
-
     z-index: 998;
     box-shadow:
     0px -1px 8px 0px rgba(0, 0, 0, 0.2),
@@ -17,75 +10,160 @@
 
     background: $yellow;
     color: $dark-text;
-    font-weight: 600;
 
     padding: 0 24px;
 
     @media screen and (max-width: $md-breakpoint) {
         padding: 0 16px;
     }
+
+    transition: 0.3s;
 }
 
-.left {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.collapsed {
+    min-height: 80px;
 
-    .logo {
+    max-width: $md-breakpoint;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+
+
+    .left {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .logo {
+            height: fit-content;
+            width: fit-content;
+
+            font-size: 4rem;
+            color: $brown;
+        }
+
+    }
+
+
+    .right {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        .symbol {
+            width: 40px;
+            margin-right: 12px;
+            background: $brown;
+            border-radius: 4%;
+
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: $yellow;
+            text-align: center;
+        }
+
+        .quantity {
+            text-align: center;
+
+            font-size: 2rem;
+            margin-right: 48px;
+            font-weight: 600;
+        }
+
+        .total {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            margin-right: 38px;
+
+            font-size: 2rem;
+        }
+
+        .action {
+            height: 100%;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            .action__order {
+                margin-right: 8px;
+            }
+            .action__details {
+
+            }
+        }
+
+    }
+}
+
+.expanded {
+    min-height: 240px;
+
+    max-width: $md-breakpoint;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo--big {
         height: fit-content;
         width: fit-content;
 
-        font-size: 4rem;
-        // line-height: 60px;
-        color: $light-text;
-    }
-
-    .quantity {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        margin-left: 16px;
-        text-align: center;
-
-        font-size: 0.875rem;
-
-        .quantity__number {
-            font-size: 2rem;
-            font-weight: 500;
-        }
-    }
-
-}
-
-
-.right {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .total {
-        margin-right: 16px;
-
-        font-size: 2rem;
-        font-weight: normal;
+        font-size: 8rem;
+        color: $brown;
     }
 
     .action {
-        height: 100%;
+        width: 128px;
 
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
-        align-items: center;
 
-        .action__order {
-            margin-right: 8px;
+        .symbol {
+            width: 40px;
+            background: $brown;
+            border-radius: 4%;
+
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: $yellow;
+            text-align: center;
         }
-        .action__details {
 
+        .total {
+            text-align: center;
+
+            flex-grow: 1;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            font-size: 2rem;
+
+            .total__amount {
+                flex-grow: 1;
+            }
+        }
+
+        button {
+            margin-bottom: 4px;
         }
     }
-
 }

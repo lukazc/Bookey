@@ -126,4 +126,6 @@ Next
 
 </div>
 
-<cart-bar></cart-bar>
+<cart-bar
+[style.height]="cart.itemCount ? 'fit-content' : '0'"
+[style.opacity]="cart.itemCount ? '1' : '0'"></cart-bar>
