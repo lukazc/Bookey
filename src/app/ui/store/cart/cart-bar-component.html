@@ -25,9 +25,20 @@
 
 <div *ngIf="!isCollapsed" class="expanded">
     <mat-icon class="logo--big">shopping_basket</mat-icon>
-    <div class="products">
-        here
-    </div>
+
+    <div class="glider-container">
+        <div class="glider">
+          <div>your content here</div>
+          <div>your content here</div>
+          <div>your content here</div>
+          <div>your content here</div>
+        </div>
+
+        <button role="button" aria-label="Previous" class="glider-prev">«</button>
+        <button role="button" aria-label="Next" class="glider-next">»</button>
+        <div role="tablist" class="dots"></div>
+      </div>
+
     <div class="action">
         <div class="total">
             <div class="symbol">$</div>
@@ -42,3 +53,5 @@
 
     </div>
 </div>
+
+
