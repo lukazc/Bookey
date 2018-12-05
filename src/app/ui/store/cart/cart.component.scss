@@ -1,0 +1,60 @@
+@import "~sass/colors";
+@import "~sass/breakpoints";
+
+:host() {
+    background-color: $beige;
+
+    display: flex;
+    justify-content: center;
+}
+
+#stepper {
+    max-width: 1200px;
+    background-color: $beige;
+
+    .line {
+        display: flex;
+        flex-direction: row;
+
+        border: 1px solid $brown;
+
+        width: 920px;
+
+        @media screen and (max-width: $md-breakpoint) {
+            width: 600px;
+        }
+
+        @media screen and (max-width: $s-breakpoint) {
+            width: 500px;
+        }
+
+        @media screen and (max-width: $xs-breakpoint) {
+            width: 90%;
+        }
+
+        .line__image {
+            width: 12.5%;
+            margin: 0 16px;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .line__middle {
+            flex-grow: 1;
+
+            .line__title{
+                color: $dark-text;
+            }
+            .line__author {
+                color: $light-text;
+            }
+        }
+
+        .line__remove {
+            cursor: pointer;
+        }
+    }
+}
