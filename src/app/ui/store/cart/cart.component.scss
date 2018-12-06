@@ -12,49 +12,152 @@
     max-width: 1200px;
     background-color: $beige;
 
-    .line {
+    .lines {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
-        border: 1px solid $brown;
+        border: 1px solid $darkbeige;
 
-        width: 920px;
+        .line {
+            display: flex;
+            flex-direction: row;
 
-        @media screen and (max-width: $md-breakpoint) {
-            width: 600px;
-        }
+            position: relative;
 
-        @media screen and (max-width: $s-breakpoint) {
-            width: 500px;
-        }
+            padding: 16px 8px 8px 8px;
+            box-sizing: border-box;
 
-        @media screen and (max-width: $xs-breakpoint) {
-            width: 90%;
-        }
+            border-bottom: 1px dotted $darkbeige;
+            &:last-child {
+                border-bottom: none;
+            }
 
-        .line__image {
-            width: 12.5%;
-            margin: 0 16px;
+            &:hover {
+                background-color: rgba(0,0,0,.04);
+            }
 
-            img {
+            width: 920px;
+
+            @media screen and (max-width: $md-breakpoint) {
+                width: 600px;
+            }
+
+            @media screen and (max-width: $s-breakpoint) {
+                width: 500px;
+            }
+
+            @media screen and (max-width: $xs-breakpoint) {
                 width: 100%;
-                height: auto;
+                flex-direction: column;
             }
-        }
 
-        .line__middle {
-            flex-grow: 1;
 
-            .line__title{
-                color: $dark-text;
+            .line__info {
+                flex-grow: 1;
+
+                display: flex;
+                flex-direction: row;
+
+                padding: 0 16px;
+
+                @media screen and (max-width: $xs-breakpoint) {
+                    padding: 0;
+                }
+
+                .line__image {
+                    margin-left: 8px;
+
+                    width: 16.5%;
+                    flex-shrink: 0;
+
+                    @media screen and (max-width: $xs-breakpoint) {
+                        margin: 0;
+                    }
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+
+                .line__info-text {
+                    margin-left: 16px;
+
+                    @media screen and (max-width: $xs-breakpoint) {
+                        margin-left: 8px;
+                    }
+
+                    .line__title{
+                        font-family: Georgia, 'Times New Roman', Times, serif;
+                        font-weight: 500;
+                        font-size: 1.0625rem;
+                        color: $dark-text;
+                    }
+                    .line__author {
+                        margin-top: 8px;
+
+                        font-size: 0.875rem;
+                        font-weight: 600;
+                        color: $light-text;
+                    }
+                }
             }
-            .line__author {
-                color: $light-text;
-            }
-        }
 
-        .line__remove {
-            cursor: pointer;
+            .line__control {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                margin-top: 8px;
+
+                @media screen and (max-width: $xs-breakpoint) {
+                    flex-direction: row;
+                    justify-content: space-between;
+                    padding-left: calc(8px + 16.5%);
+                }
+
+                .line__quantity {
+                    flex-grow: 1;
+
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+
+                    color: $brown;
+
+                    span {
+                        height: fit-content;
+                        font-size: 1.625rem;
+
+                        @media screen and (max-width: $xs-breakpoint) {
+                            font-size: 1.25rem;
+                        }
+                    }
+                }
+
+                .line__total {
+                    margin-top: 12px;
+                    margin-bottom: 16px;
+                    @media screen and (max-width: $md-breakpoint) {
+                        margin-bottom: 8px;
+                    }
+
+                    font-family: Georgia, 'Times New Roman', Times, serif;
+                    font-weight: 500;
+                    font-size: 1.0625rem;
+                    color: $dark-text;
+                }
+            }
+
+            // .line__remove {
+                //     cursor: pointer;
+
+                //     position: absolute;
+                //     top: 4px;
+                //     right: 4px;
+                // }
+            }
         }
     }
-}

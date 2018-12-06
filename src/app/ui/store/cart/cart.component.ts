@@ -9,4 +9,11 @@ import { Cart } from '@app-data/cart/cart.service';
 })
 export class CartComponent {
     constructor(public cart: Cart) {}
+
+    increaseQuantity (line) {
+        this.cart.updateQuantity(line.product, line.quantity + 1);
+    }
+    decreaseQuantity (line) {
+        this.cart.updateQuantity(line.product, line.quantity - 1);
+    }
 }
