@@ -1,13 +1,12 @@
+<button routerLink="/store">Back to shop</button>
+
 <mat-vertical-stepper [linear]="true" id="stepper">
     <!-- Custom step icons -->
-    <ng-template matStepperIcon="bag">
-        <mat-icon>shopping_basket</mat-icon>
-    </ng-template>
-    <ng-template matStepperIcon="done">
+    <ng-template matStepperIcon="edit">
         <mat-icon>done</mat-icon>
     </ng-template>
 
-    <mat-step [completed]="cart.lines.length != 0" state="bag">
+    <mat-step [completed]="cart.lines.length != 0" [editable]="!orderConfirmed">
         <ng-template matStepLabel>Confirm your purchase</ng-template>
 
         <div class="lines">
@@ -40,63 +39,24 @@
             </div>
         </div>
 
-        <!-- TODO: remove -->
-        <div style="display: none;">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Quantity</th>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Subtotal</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngIf="cart.lines.length == 0">
-                        <td colspan="4">
-                            Your cart is empty
-                        </td>
-                    </tr>
-                    <tr *ngFor="let line of cart.lines">
-                        <td>
-                            <input type="number"
-                            [value]="line.quantity"
-                            (change)="cart.updateQuantity(line.product, $event.target.value)"/>
-                        </td>
-                        <td>{{line.product.title}}</td>
-                        <td>
-                            {{line.product.price | currency:"USD":"symbol-narrow":"1.2-2"}}
-                        </td>
-                        <td>
-                            {{(line.lineTotal) | currency:"USD":"symbol-narrow":"1.2-2" }}
-                        </td>
-                        <td>
-                            <button (click)="cart.removeLine(line.product.id)">
-                                Remove
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="3">Total:</td>
-                        <td>
-                            {{cart.cartPrice | currency:"USD":"symbol-narrow":"1.2-2"}}
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
+        <div class="summary1">
+            <div class="summary1__title">Your order</div>
+            <div class="summary1__quantity">
+                <div>Number of items:</div>
+                <div class="number">{{cart.itemCount}}</div>
+            </div>
+            <div class="summary1__total">
+                <div>Total to pay:</div>
+                <div class="number">{{cart.cartPrice | currency:"USD":"symbol-narrow":"1.2-2" }}</div>
+            </div>
+            <div>
+                <button mat-flat-button
+                matStepperNext [disabled]="cart.lines.length == 0">
+                Confirm</button>
+            </div>
         </div>
-        <div>
-            <button routerLink="/store">Continue Shopping</button>
-            <button routerLink="/checkout"
-            [disabled]="cart.lines.length == 0">
-            Checkout
-        </button>
-    </div>
-
 </mat-step>
-<mat-step [stepControl]="checkout">
+<mat-step [stepControl]="checkout" [editable]="!orderConfirmed">
     <ng-template matStepLabel>Enter shipping details</ng-template>
     <app-checkout></app-checkout>
 </mat-step>
