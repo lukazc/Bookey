@@ -8,24 +8,35 @@
     z-index: 999;
 }
 
-#logo {
-    margin-left: 8px;
+.container {
+    display: flex;
+    flex-direction: row;
 
-    @media screen and (max-width: $md-breakpoint) {
-        margin:0;
-    }
-}
+    max-width: 1200px;
+    width: 100%;
 
-.toolbar-button {
-    &:not(:last-child) {
-        margin-right: 16px;
-    }
-    &:last-child {
-        margin-right: 8px;
+    margin: 0 auto;
+
+    #logo {
+        margin-left: 8px;
 
         @media screen and (max-width: $md-breakpoint) {
             margin:0;
         }
+    }
+
+    .toolbar-button {
+        &:not(:last-child) {
+            margin-right: 16px;
+        }
+        &:last-child {
+            margin-right: 8px;
+
+            @media screen and (max-width: $md-breakpoint) {
+                margin:0;
+            }
+        }
+
     }
 
 }

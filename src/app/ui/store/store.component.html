@@ -8,28 +8,43 @@
   <mat-expansion-panel
   hideToggle [disabled]="true" [expanded]="showFilter">
   <mat-expansion-panel-header>
-    <div id="filter__header">
-      <button mat-button
-      [class.active]="showFilter"
-      (click)="toggleShowFilter()">
-      <mat-icon>tune</mat-icon>
-      <span>FILTER</span>
-    </button>
-    <div id="filter__searchbox">
-      <mat-form-field>
-        <input matInput type="text" placeholder="Search"
-        [(ngModel)]="searchText" (keyup)="pageSelect(1)">
-        <button *ngIf="searchText"
-        mat-button mat-icon-button matSuffix
-        (click)="searchText=''">
-        <mat-icon>close</mat-icon>
+    <div id="filter__header"
+    (click)="toggleShowFilter()">
+      <!-- Hidden Flex counterweight buttons -->
+      <button class="filter__button hidden" mat-button>
+        <mat-icon>tune</mat-icon>
+        <span>FILTER</span>
       </button>
-    </mat-form-field>
-  </div>
-  <button class="hidden" mat-button>
+      <!-- Alt button for mobile -->
+      <button class="filter__button--mobile hidden" mat-button>
+        <mat-icon>tune</mat-icon>
+      </button>
+      <div id="filter__searchbox">
+        <mat-form-field>
+          <input matInput type="text" placeholder="Search"
+          [(ngModel)]="searchText" (keyup)="pageSelect(1)"
+          (click)="$event.stopPropagation()"
+          (keydown)="$event.stopPropagation()">
+
+          <button *ngIf="searchText"
+          mat-button mat-icon-button matSuffix
+          (click)="searchText=''; $event.stopPropagation()">
+          <mat-icon>close</mat-icon>
+        </button>
+
+      </mat-form-field>
+    </div>
+    <!-- Visible buttons -->
+    <button mat-button class="filter__button"
+    [class.isActive]="showFilter">
     <mat-icon>tune</mat-icon>
     <span>FILTER</span>
   </button>
+  <!-- Alt button for mobile -->
+  <button class="filter__button--mobile" mat-button
+  [class.isActive]="showFilter">
+      <mat-icon>tune</mat-icon>
+    </button>
 </div>
 </mat-expansion-panel-header>
 <div id="filter__content">
@@ -50,26 +65,26 @@
       <mat-select-trigger>Choose Category</mat-select-trigger>
       <mat-option *ngFor="let category of categories" [value]="category"
       (click)="pageSelect(1)">
-        {{category}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <!-- sort dropdown -->
-    <mat-form-field class="filter__sort">
-      <mat-select placeholder="Sort By">
-        <mat-option *ngFor="let option of sortOptions" [value]="option"
-        (click)="sortProducts(option)">
-        {{option}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <!-- selected category badges -->
-  <div class="filter__selected-categories">
-    <button *ngFor="let category of selectedCategories"
-    mat-stroked-button id="filter__selected-button"
-    (click)="changeCategory(category, categoryModel)">
-    <mat-icon>close</mat-icon>
-    <span class="filter__selected-button-text">{{category}}</span>
-  </button>
+      {{category}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <!-- sort dropdown -->
+  <mat-form-field class="filter__sort">
+    <mat-select placeholder="Sort By">
+      <mat-option *ngFor="let option of sortOptions" [value]="option"
+      (click)="sortProducts(option)">
+      {{option}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<!-- selected category badges -->
+<div class="filter__selected-categories">
+  <button *ngFor="let category of selectedCategories"
+  mat-stroked-button id="filter__selected-button"
+  (click)="changeCategory(category, categoryModel)">
+  <mat-icon>close</mat-icon>
+  <span class="filter__selected-button-text">{{category}}</span>
+</button>
 </div>
 </div>
 </mat-expansion-panel>
@@ -79,17 +94,17 @@
   <div id="catalog__grid">
     <div class="item" *ngFor="let product of productsOnPage">
       <button mat-flat-button
-        class="item__action-button hidden" [class.mat-elevation-z2]="true"
-        (click)="addProductToCart(product)">
-        Add to bag
-      </button>
-      <img class="item__img" src="https://dummyimage.com/120x150/572718/000000.png&text=+BOOK+COVER">
-      <div class="item__details">
-        <div class="item__title"> {{product.title}} </div>
-        <div class="item__author"> {{product.author}} </div>
-        <div class="item__price"> {{ product.price | currency:"USD":"symbol-narrow":"1.2-2"}}</div>
-      </div>
-</div>
+      class="item__action-button hidden" [class.mat-elevation-z2]="true"
+      (click)="addProductToCart(product)">
+      Add to bag
+    </button>
+    <img class="item__img" src="https://dummyimage.com/120x150/572718/000000.png&text=+BOOK+COVER">
+    <div class="item__details">
+      <div class="item__title"> {{product.title}} </div>
+      <div class="item__author"> {{product.author}} </div>
+      <div class="item__price"> {{ product.price | currency:"USD":"symbol-narrow":"1.2-2"}}</div>
+    </div>
+  </div>
 </div>
 
 
@@ -119,10 +134,10 @@ Next
 </div>
 
 <div *ngIf="allProducts.length && !productsOnPage.length" class="catalog__empty">
-    <span class="catalog__empty-text">
-      Sorry, there are no items like that.
-    </span>
-  </div>
+  <span class="catalog__empty-text">
+    Sorry, there are no items like that.
+  </span>
+</div>
 
 </div>
 

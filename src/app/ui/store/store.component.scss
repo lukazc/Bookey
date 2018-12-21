@@ -35,17 +35,36 @@
                 justify-content: space-between;
                 height: fit-content;
 
+                max-width: 1200px;
+                margin: 0 auto;
+
                 button {
                     display: flex;
                     align-items: center;
                     justify-content: center;
 
-                    &.active {
-                        color: black;
+                    &.isActive {
+                        color: $dark-text;
                     }
 
                     span {
                         margin-left: 5px;
+                    }
+                }
+
+                .filter__button--mobile {
+                    display: none;
+                    min-width: 0px;
+                }
+
+                @media screen and (max-width: $xs-breakpoint) {
+                    justify-content: center;
+
+                    .filter__button {
+                        display: none;
+                    }
+                    .filter__button--mobile {
+                        display: flex;
                     }
                 }
 
