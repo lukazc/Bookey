@@ -5,50 +5,51 @@
     <button  routerLink="/store">Return to Store</button>
 </div>
 
-<form *ngIf="!orderSent" #form="ngForm" novalidate
-(ngSubmit)="submitOrder(form)">
-<div>
-    <label>Name</label>
-    <input  #name="ngModel" name="name"
-    [(ngModel)]="order.name" required />
-    <span *ngIf="submitAttempted && name.invalid">
-        Please enter your name
-    </span>
-</div>
-<div>
-    <label>Address</label>
-    <input  #address="ngModel" name="address"
-    [(ngModel)]="order.address" required />
-    <span *ngIf="submitAttempted && address.invalid">
-        Please enter your address
-    </span>
-</div>
-<div>
-    <label>City</label>
-    <input  #city="ngModel" name="city"
-    [(ngModel)]="order.city" required />
-    <span *ngIf="submitAttempted && city.invalid">
-        Please enter your city
-    </span>
-</div>
-<div>
-    <label>Zip/Postal Code</label>
-    <input  #zip="ngModel" name="zip"
-    [(ngModel)]="order.zip" required />
-    <span *ngIf="submitAttempted && zip.invalid">
-        Please enter your zip/postal code
-    </span>
-</div>
-<div>
-    <label>Country</label>
-    <input  #country="ngModel" name="country"
-    [(ngModel)]="order.country" required />
-    <span *ngIf="submitAttempted && country.invalid">
-        Please enter your country
-    </span>
-</div>
+<form *ngIf="!orderSent" #checkout="ngForm" novalidate
+(ngSubmit)="submitOrder(checkout)"
+id="checkout">
+<mat-form-field>
+    <input matInput #name="ngModel" name="name"
+    [(ngModel)]="order.name" required
+    placeholder="Name">
+    <mat-error *ngIf="submitAttempted && address.invalid">
+        Name is <strong>required</strong>
+    </mat-error>
+</mat-form-field>
+<mat-form-field>
+    <input matInput #address="ngModel" name="address"
+    [(ngModel)]="order.address" required
+    placeholder="Address"/>
+    <mat-error *ngIf="submitAttempted && address.invalid">
+        Address is <strong>required</strong>
+    </mat-error>
+</mat-form-field>
+<mat-form-field>
+    <input matInput #city="ngModel" name="city"
+    [(ngModel)]="order.city" required
+    placeholder="City"/>
+    <mat-error *ngIf="submitAttempted && city.invalid">
+        City is <strong>required</strong>
+    </mat-error>
+</mat-form-field>
+<mat-form-field>
+    <input matInput #zip="ngModel" name="zip"
+    [(ngModel)]="order.zip" required
+    placeholder="Zip Code"/>
+    <mat-error *ngIf="submitAttempted && zip.invalid">
+        Zip Code is <strong>required</strong>
+    </mat-error>
+</mat-form-field>
+<mat-form-field>
+    <input matInput #country="ngModel" name="country"
+    [(ngModel)]="order.country" required
+    placeholder="Country"/>
+    <mat-error *ngIf="submitAttempted && country.invalid">
+        Country is <strong>required</strong>
+    </mat-error>
+</mat-form-field>
 <div>
     <button  routerLink="/cart">Back</button>
-    <button  type="submit">Complete Order</button>
+    <button  type="submit" >Complete Order</button>
 </div>
 </form>
