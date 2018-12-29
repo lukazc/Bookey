@@ -9,15 +9,17 @@
 (ngSubmit)="submitOrder(checkout)"
 id="checkout">
 <mat-form-field>
-    <input matInput #name="ngModel" name="name"
+    <input matInput type="text" pattern="[A-zÀ-ž\s]+"
+    #name="ngModel" name="name"
     [(ngModel)]="order.name" required
     placeholder="Name">
-    <mat-error *ngIf="submitAttempted && address.invalid">
+    <mat-error *ngIf="submitAttempted && name.invalid">
         Name is <strong>required</strong>
     </mat-error>
 </mat-form-field>
 <mat-form-field>
-    <input matInput #address="ngModel" name="address"
+    <input matInput
+    #address="ngModel" name="address"
     [(ngModel)]="order.address" required
     placeholder="Address"/>
     <mat-error *ngIf="submitAttempted && address.invalid">
@@ -25,7 +27,8 @@ id="checkout">
     </mat-error>
 </mat-form-field>
 <mat-form-field>
-    <input matInput #city="ngModel" name="city"
+    <input matInput type="text" pattern="[A-zÀ-ž\s]+"
+    #city="ngModel" name="city"
     [(ngModel)]="order.city" required
     placeholder="City"/>
     <mat-error *ngIf="submitAttempted && city.invalid">
@@ -33,22 +36,24 @@ id="checkout">
     </mat-error>
 </mat-form-field>
 <mat-form-field>
-    <input matInput #zip="ngModel" name="zip"
-    [(ngModel)]="order.zip" required
-    placeholder="Zip Code"/>
-    <mat-error *ngIf="submitAttempted && zip.invalid">
-        Zip Code is <strong>required</strong>
-    </mat-error>
-</mat-form-field>
-<mat-form-field>
-    <input matInput #country="ngModel" name="country"
+    <input matInput pattern="[A-zÀ-ž\s]+"
+    #country="ngModel" name="country"
     [(ngModel)]="order.country" required
     placeholder="Country"/>
     <mat-error *ngIf="submitAttempted && country.invalid">
         Country is <strong>required</strong>
     </mat-error>
 </mat-form-field>
-<div>
+<mat-form-field>
+    <input matInput type="tel" pattern="(?:[+])?[0-9]{9,12}"
+    #phone="ngModel" name="phone"
+    [(ngModel)]="order.phone" required
+    placeholder="Phone Number"/>
+    <mat-error *ngIf="submitAttempted && phone.invalid">
+        Phone number is <strong>required</strong>
+    </mat-error>
+</mat-form-field>
+<div >
     <button  routerLink="/cart">Back</button>
     <button  type="submit" >Complete Order</button>
 </div>

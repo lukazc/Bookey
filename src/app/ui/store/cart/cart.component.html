@@ -6,7 +6,7 @@
         <mat-icon>done</mat-icon>
     </ng-template>
 
-    <mat-step [completed]="cart.lines.length != 0" [editable]="!orderConfirmed">
+    <mat-step [completed]="cart.lines.length != 0" [editable]="!orderCompleted">
         <ng-template matStepLabel>Confirm your purchase</ng-template>
 
         <div class="lines">
@@ -56,7 +56,7 @@
             </div>
         </div>
 </mat-step>
-<mat-step [stepControl]="checkout" [editable]="!orderConfirmed">
+<mat-step [stepControl]="checkout" [editable]="!orderCompleted">
     <ng-template matStepLabel>Enter shipping details</ng-template>
     <app-checkout></app-checkout>
 </mat-step>
