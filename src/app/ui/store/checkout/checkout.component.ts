@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { Order } from '@app-data/order.model';
 import { OrderRepository } from '@app-data/order.repo';
 import { NgForm } from '@angular/forms';
@@ -10,6 +10,8 @@ import { NgForm } from '@angular/forms';
 })
 export class CheckoutComponent {
 
+    @Output() validSubmission = new EventEmitter();
+
     submitAttempted: boolean = false;
     orderSent: boolean = false;
 
@@ -19,6 +21,9 @@ export class CheckoutComponent {
         this.submitAttempted = true;
 
         if (form.valid) {
+            // Notify parent component of a valid submission
+            this.validSubmission.emit();
+            // Save the order on server, and delete it locally
             this.repository
             .saveOrder(this.order)
             .subscribe(order => {

@@ -1,12 +1,5 @@
-<div *ngIf="orderSent">
-    <h2>Thanks!</h2>
-    <p>Thanks for placing your order.</p>
-    <p>We'll deliver your goods to your address.</p>
-    <button  routerLink="/store">Return to Store</button>
-</div>
-
-<form *ngIf="!orderSent" #checkout="ngForm" novalidate
-(ngSubmit)="submitOrder(checkout)"
+<form #checkoutForm="ngForm" novalidate
+(ngSubmit)="submitOrder(checkoutForm)"
 id="checkout">
 <mat-form-field>
     <input matInput type="text" pattern="[A-zÀ-ž\s]+"

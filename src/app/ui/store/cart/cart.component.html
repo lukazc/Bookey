@@ -1,12 +1,13 @@
 <button routerLink="/store">Back to shop</button>
 
-<mat-vertical-stepper [linear]="true" id="stepper">
+<mat-vertical-stepper [linear]="true" id="stepper" #stepper>
     <!-- Custom step icons -->
-    <ng-template matStepperIcon="edit">
-        <mat-icon>done</mat-icon>
+    <ng-template matStepperIcon="edit" let-step="index">
+        <mat-icon *ngIf="step == 0">done</mat-icon>
+        <mat-icon *ngIf="step != 0">edit</mat-icon>
     </ng-template>
 
-    <mat-step [completed]="cart.lines.length != 0" [editable]="!orderCompleted">
+    <mat-step [completed]="cart.lines.length != 0 || orderCompleted" [editable]="!orderCompleted">
         <ng-template matStepLabel>Confirm your purchase</ng-template>
 
         <div class="lines">
@@ -56,15 +57,15 @@
             </div>
         </div>
 </mat-step>
-<mat-step [stepControl]="checkout" [editable]="!orderCompleted">
+<mat-step [completed]="orderCompleted" [editable]="!orderCompleted">
     <ng-template matStepLabel>Enter shipping details</ng-template>
-    <app-checkout></app-checkout>
+    <app-checkout #checkout (validSubmission)="completeOrder()"></app-checkout>
 </mat-step>
 
-<mat-step>
+<mat-step [completed]="orderCompleted" [editable]="true">
     <ng-template matStepLabel>Done!</ng-template>
     <div>Thank you!</div>
     <div>Your items are on their way.</div>
 </mat-step>
-
 </mat-vertical-stepper>
+<!-- <div *ngIf="checkout.checkoutForm">{{checkout.checkoutForm.valid}}</div> -->
