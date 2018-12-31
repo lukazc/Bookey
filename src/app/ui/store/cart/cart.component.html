@@ -6,6 +6,10 @@
         <mat-icon *ngIf="step == 0">done</mat-icon>
         <mat-icon *ngIf="step != 0">edit</mat-icon>
     </ng-template>
+    <ng-template matStepperIcon="number" let-step="index">
+        <mat-icon *ngIf="step == 2 && stepper.selectedIndex == 2">done</mat-icon>
+        <div *ngIf="!(step == 2 && stepper.selectedIndex == 2)">{{step+1}}</div>
+    </ng-template>
 
     <mat-step [completed]="cart.lines.length != 0 || orderCompleted" [editable]="!orderCompleted">
         <ng-template matStepLabel>Confirm your purchase</ng-template>
@@ -64,8 +68,10 @@
 
 <mat-step [completed]="orderCompleted" [editable]="true">
     <ng-template matStepLabel>Done!</ng-template>
-    <div>Thank you!</div>
-    <div>Your items are on their way.</div>
+    <div class="final__header">Thank you!</div>
+    <div class="final__body">Your items are on their way.</div>
+    <button class="final__button" mat-flat-button
+    routerLink="/store">Back to shopping</button>
 </mat-step>
 </mat-vertical-stepper>
 <!-- <div *ngIf="checkout.checkoutForm">{{checkout.checkoutForm.valid}}</div> -->
