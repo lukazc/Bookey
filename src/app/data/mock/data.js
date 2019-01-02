@@ -20,9 +20,9 @@ module.exports = function () {
             { id: 17, title: "A Confederacy of Dunces", author: "John Kennedy Toole", category: "Comedy", description: "Ignatius J. Reilly is huge, obese, fractious, fastidious, a latter-day Gargantua, a Don Quixote of the French Quarter.", price: 10.87 },
             { id: 18, title: "Antifragile", author: "Nassim Nicholas Taleb", category: "Economics", description: "An investigation of opacity, luck, uncertainty, probability, human error, risk, and decision-making.", price: 14.40 },
             { id: 19, title: "Moral Origins", author: "Christopher Boehm", category: "Psychology", description: "A groundbreaking exploration of the evolution of human generosity and cooperation.", price: 29.31 },
-            { id: 19, title: "The Sun Also Rises", author: "Ernest Hemingway", category: "Fiction", description: "American and British expatriates travel from Paris to the Festival of San Fermín in Pamplona to watch the running of the bulls and the bullfights.", price: 16.00 },
-            { id: 19, title: "The Vital Question", author: "Nick Lane", category: "Popular science", description: "Nick Lane radically reframes evolutionary history, putting forward a solution to conundrums that have puzzled generations of scientists.", price: 16.95 },
-            { id: 19, title: "Enlightenment Now", author: "Steven Pinker", category: "Social philosophy", description: "People are living longer, healthier, freer, and happier lives, and while our problems are formidable, the solutions lie in the Enlightenment ideal of using reason and science.", price: 23.79 }
+            { id: 20, title: "The Sun Also Rises", author: "Ernest Hemingway", category: "Fiction", description: "American and British expatriates travel from Paris to the Festival of San Fermín in Pamplona to watch the running of the bulls and the bullfights.", price: 16.00 },
+            { id: 21, title: "The Vital Question", author: "Nick Lane", category: "Popular science", description: "Nick Lane radically reframes evolutionary history, putting forward a solution to conundrums that have puzzled generations of scientists.", price: 16.95 },
+            { id: 22, title: "Enlightenment Now", author: "Steven Pinker", category: "Social philosophy", description: "People are living longer, healthier, freer, and happier lives, and while our problems are formidable, the solutions lie in the Enlightenment ideal of using reason and science.", price: 23.79 }
         ],
         orders: []
     };
