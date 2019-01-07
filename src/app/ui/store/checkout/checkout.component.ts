@@ -21,15 +21,18 @@ export class CheckoutComponent {
         this.submitAttempted = true;
 
         if (form.valid) {
-            // Notify parent component of a valid submission
-            this.validSubmission.emit();
             // Save the order on server, and delete it locally
             this.repository
             .saveOrder(this.order)
             .subscribe(order => {
-                this.order.clear();
+                // Notify parent component of a valid submission
+                this.validSubmission.emit();
+
                 this.orderSent = true;
                 this.submitAttempted = false;
+                setTimeout(() => {
+                    this.order.clear();
+                }, 2000);
             });
         }
     }

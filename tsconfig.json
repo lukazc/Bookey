@@ -21,7 +21,8 @@
       "@app-data/*": ["app/data/*"],
       "@app-ui/*": ["app/ui/*"],
       "@app/*": ["app/*"],
-      "@env/*": ["environments/*"]
+      "@env/*": ["environments/*"],
+      "@assets/*": ["assets/*"]
     }
   }
 }
