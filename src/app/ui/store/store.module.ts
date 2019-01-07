@@ -12,14 +12,14 @@ import { CartShortSummaryComponent } from '@app-ui/store/cart/cart-short-summary
 import { CartBarComponent } from '@app-ui/store/cart/cart-bar-component';
 import { CartComponent } from '@app-ui/store/cart/cart.component';
 import { CheckoutComponent } from '@app-ui/store/checkout/checkout.component';
-import { ImagePreloadDirective } from './img.preload.directive';
+import { ImageFallbackDirective } from './img.fallback.directive';
 
 
 @NgModule({
   imports: [
     BrowserModule, RouterModule, FormsModule, MaterialDesignModule, DataModule
   ],
-  declarations: [ StoreComponent, CartShortSummaryComponent, CartBarComponent, CartComponent, CheckoutComponent, ImagePreloadDirective ],
-  exports: [ StoreComponent, CartComponent, CheckoutComponent, ImagePreloadDirective ]
+  declarations: [ StoreComponent, CartShortSummaryComponent, CartBarComponent, CartComponent, CheckoutComponent, ImageFallbackDirective ],
+  exports: [ StoreComponent, CartComponent, CheckoutComponent, ImageFallbackDirective ]
 })
 export class StoreModule { }

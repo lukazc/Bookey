@@ -4,15 +4,15 @@ import {Directive, Input, HostBinding, HostListener} from '@angular/core';
     selector: 'img[appFallbackSrc]'
 })
 
-export class ImagePreloadDirective {
-    @HostBinding('src') src: string;
+export class ImageFallbackDirective {
+    @HostBinding('src') @Input() src: string;
     @Input() appFallbackSrc: string;
-    @HostBinding('class') className;
+    @HostBinding('class') @Input() class;
 
     @HostListener('error') updateUrl() {
         this.src = this.appFallbackSrc;
     }
     @HostListener('load') load() {
-        this.className = 'image-loaded';
+        this.class = this.class + ' img__loaded';
     }
 }
