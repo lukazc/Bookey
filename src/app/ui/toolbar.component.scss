@@ -2,9 +2,6 @@
 
 :host() {
     flex-shrink: 0;
-    position: sticky;
-    position: -webkit-sticky; /* For macOS/iOS Safari */
-    top: 0; /* Sets the sticky toolbar to be on top */
     z-index: 999;
 }
 
@@ -19,7 +16,12 @@
     margin: 0 auto;
 
     #logo {
+        display: flex;
+        align-items: center;
         margin-left: 8px;
+
+        font-family: "Homestead Regular";
+        font-size: 1.25rem;
 
         @media screen and (max-width: $md-breakpoint) {
             margin:0;
@@ -27,9 +29,6 @@
     }
 
     .toolbar-button {
-        &:not(:last-child) {
-            margin-right: 16px;
-        }
         &:last-child {
             margin-right: 8px;
 
@@ -37,7 +36,5 @@
                 margin:0;
             }
         }
-
     }
-
 }

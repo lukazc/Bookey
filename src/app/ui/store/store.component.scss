@@ -16,7 +16,7 @@
     mat-expansion-panel {
         padding: 5px 8px 0px 8px;
 
-        background: $yellow;
+        background: $light-purple;
 
         @media screen and (max-width: $md-breakpoint) {
             padding: 5px 0 0 0;
@@ -26,7 +26,7 @@
             margin-bottom: 5px;
             padding: 0;
 
-            background: $yellow !important;
+            background: $light-purple !important;
 
             #filter__header {
                 flex-grow: 1;
@@ -265,13 +265,13 @@
                     position: absolute;
                     top: 5%;
 
-                    background: $lightblue;
+                    background: $accent-purple-dark;
                     transition: 0.3s;
                     border-radius: 5%;
                     font-weight: bold;
 
                     &:hover {
-                        background: $highlightblue;
+                        background: $accent-purple;
                     }
 
                     @media screen and (min-width: $md-breakpoint) {
