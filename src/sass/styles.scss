@@ -60,3 +60,13 @@ app-root {
       }
     }
   }
+
+  // Dropdown menu styles
+  .mat-menu-panel {
+    background: $accent-purple-dark;
+
+    .mat-menu-item{
+      font-family: "Homestead Regular";
+      color: $beige;
+    }
+  }

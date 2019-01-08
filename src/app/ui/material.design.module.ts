@@ -5,7 +5,8 @@ import { CommonModule } from '@angular/common';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatFormFieldModule, MatInputModule,
   MatSelectModule, MatButtonModule, MatCheckboxModule,
-  MatProgressSpinnerModule, MatIconModule, MatExpansionModule, MatButtonToggleModule, MatStepperModule } from '@angular/material';
+  MatProgressSpinnerModule, MatIconModule, MatExpansionModule, MatButtonToggleModule, MatStepperModule,
+  MatMenuModule } from '@angular/material';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MatToolbarModule, MatFormFieldModule, MatInputModule,
     MatButtonToggleModule,
     MatCheckboxModule,
     MatProgressSpinnerModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule
   ],
   exports: [
     LayoutModule,
@@ -36,7 +38,8 @@ import { MatToolbarModule, MatFormFieldModule, MatInputModule,
     MatButtonToggleModule,
     MatCheckboxModule,
     MatProgressSpinnerModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule
   ],
   declarations: []
 })

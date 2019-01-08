@@ -2,18 +2,41 @@
 
   <div class="container">
 
-    <span id="logo">
-      <mat-icon>layers</mat-icon>
-      Bookey</span>
+    <a id="logo" routerLink="/store">
+      <mat-icon [inline]="true">layers</mat-icon>
+      Bookey
+    </a>
 
     <!-- This fills the remaining space of the current row -->
     <span style="flex: 1 1 auto"></span>
 
-    <button class="toolbar-button" mat-mini-fab color="accent"
-      routerLink="/cart"
-      [disabled]="cart.itemCount == 0">
-      <mat-icon aria-hidden="true">shopping_cart</mat-icon>
-    </button>
+    <div id="links">
+      <a routerLink="/">About</a>
+      <a routerLink="/">FAQ</a>
+      <a routerLink="/">Contact</a>
+    </div>
 
-  </div>
+    <button id="cart-summary" mat-mini-fab color="accent"
+    routerLink="/cart"
+    [disabled]="cart.itemCount == 0">
+    <mat-icon aria-hidden="true">shopping_cart</mat-icon>
+  </button>
+
+  <button mat-icon-button id="menu-button"
+  [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <span>About</span>
+    </button>
+    <button mat-menu-item>
+      <span>FAQ</span>
+    </button>
+    <button mat-menu-item>
+      <span>Contact</span>
+    </button>
+  </mat-menu>
+
+</div>
 </mat-toolbar>
