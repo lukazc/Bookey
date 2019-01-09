@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { MatDialog } from '@angular/material';
 
 import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
 import { Subscription } from 'rxjs';
@@ -8,6 +8,7 @@ import { Product } from '@app-data/product.model';
 import { ProductRepository } from '@app-data/product.repo';
 import { Cart } from '@app-data/cart/cart.service';
 import { Router } from '@angular/router';
+import { DetailComponent } from '@app-ui/store/detail/detail.component';
 
 @Component({
   selector: 'app-store',
@@ -39,7 +40,8 @@ export class StoreComponent implements OnInit {
     private router: Router,
     private _repository: ProductRepository,
     private cart: Cart,
-    breakpointObserver: BreakpointObserver) {}
+    breakpointObserver: BreakpointObserver,
+    private detailDialog: MatDialog) {}
 
     ngOnInit() {}
 
@@ -113,6 +115,10 @@ export class StoreComponent implements OnInit {
 
     toggleShowFilter() {
       this.showFilter = !this.showFilter;
+    }
+
+    openDetailDialog(product = {}) {
+      this.detailDialog.open(DetailComponent, { data: product });
     }
 
     sortProducts(option: string) {

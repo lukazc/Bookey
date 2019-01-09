@@ -12,6 +12,7 @@ import { CartShortSummaryComponent } from '@app-ui/store/cart/cart-short-summary
 import { CartBarComponent } from '@app-ui/store/cart/cart-bar-component';
 import { CartComponent } from '@app-ui/store/cart/cart.component';
 import { CheckoutComponent } from '@app-ui/store/checkout/checkout.component';
+import { DetailComponent } from '@app-ui/store/detail/detail.component';
 import { ImageFallbackDirective } from './img.fallback.directive';
 
 
@@ -19,7 +20,9 @@ import { ImageFallbackDirective } from './img.fallback.directive';
   imports: [
     BrowserModule, RouterModule, FormsModule, MaterialDesignModule, DataModule
   ],
-  declarations: [ StoreComponent, CartShortSummaryComponent, CartBarComponent, CartComponent, CheckoutComponent, ImageFallbackDirective ],
-  exports: [ StoreComponent, CartComponent, CheckoutComponent, ImageFallbackDirective ]
+  declarations: [ StoreComponent, CartShortSummaryComponent, CartBarComponent, CartComponent, CheckoutComponent,
+  DetailComponent, ImageFallbackDirective ],
+  exports: [ StoreComponent, CartComponent, CheckoutComponent, DetailComponent, ImageFallbackDirective ],
+  entryComponents: [DetailComponent]
 })
 export class StoreModule { }

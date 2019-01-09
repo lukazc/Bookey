@@ -1,0 +1,42 @@
+<mat-dialog-content>
+    <div id="container">
+        <div id="main">
+        <img id="cover-image" src="https://picsum.photos/180/225/?image=991"
+        appFallbackSrc="../../../../assets/cover.jpg">
+        <div id="info">
+            <div id="title">{{title}}</div>
+            <div id="author">{{author}}</div>
+        </div>
+        <div id="price">{{price | currency:"USD":"symbol-narrow":"1.2-2"}}</div>
+        <div id="control">
+            <button id="add-button" mat-flat-button
+            *ngIf="!cartLine" (click)="addToCart()">Add to bag
+            </button>
+            <div id="quantity"
+            *ngIf="cartLine">
+                <button mat-icon-button
+                (click)="increaseQuantity()">
+                    <mat-icon>add_circle</mat-icon>
+                </button>
+                <div>{{cartLine.quantity}}</div>
+                <button mat-icon-button
+                (click)="decreaseQuantity()">
+                    <mat-icon>remove_circle</mat-icon>
+                </button>
+            </div>
+        </div>
+        </div>
+        <div id="about">
+            <div id="description">
+                <p>Description</p>
+                <p>{{product.description}}</p>
+            </div>
+            <!-- <div id="details">
+                <p>Format</p>
+                <p>Dimensions</p>
+                <p>Publication date</p>
+                <p></p>
+            </div> -->
+        </div>
+    </div>
+</mat-dialog-content>

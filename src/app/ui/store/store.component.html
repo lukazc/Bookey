@@ -92,7 +92,8 @@
 
 <div id="catalog">
   <div id="catalog__grid">
-    <div class="item" *ngFor="let product of productsOnPage">
+    <div class="item" *ngFor="let product of productsOnPage"
+    (click)="openDetailDialog(product)">
       <button mat-flat-button
       class="item__action-button hidden" [class.mat-elevation-z2]="true"
       (click)="addProductToCart(product)">
