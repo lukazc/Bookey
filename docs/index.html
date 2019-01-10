@@ -11,6 +11,22 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="styles.6ea2d13c5178d6ea15ef.css"></head>
 <body>
+  <!-- Github Pages hack to allow SPA refresh without receiving 404. -->
+  <script>
+      (function () {
+        // Retrieve the URL the user was trying to access when receiving the 404.
+        var redirect = sessionStorage.redirect;
+        // Remove the URL from sessionStorage.
+        delete sessionStorage.redirect;
+        // Check if we actually need to redirect.
+        if (redirect && redirect != location.href) {
+          // Redirect to the URL the user was trying to access.
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+  <!-- /Github Pages hack. -->
+
   <app-root>
     <div class="loader">
       <div></div>
@@ -18,5 +34,5 @@
       <div></div>
     </div>
   </app-root>
-<script type="text/javascript" src="runtime.a66f828dca56eeb90e02.js"></script><script type="text/javascript" src="polyfills.5e0409d540b1fe160cad.js"></script><script type="text/javascript" src="main.9e1050054143f18d684b.js"></script></body>
+<script type="text/javascript" src="runtime.a66f828dca56eeb90e02.js"></script><script type="text/javascript" src="polyfills.5e0409d540b1fe160cad.js"></script><script type="text/javascript" src="main.16a1ff103f7ac12ab5a1.js"></script></body>
 </html>

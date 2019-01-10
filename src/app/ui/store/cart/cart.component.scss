@@ -14,11 +14,14 @@
 }
 
 #back-button {
+    flex-shrink: 0;
+
+    margin-top: 16px;
+    color: $accent-purple-dark;
+
     mat-icon {
         margin-right: 8px;
     }
-    margin-top: 16px;
-    color: $accent-purple-dark;
 }
 
 #stepper {
