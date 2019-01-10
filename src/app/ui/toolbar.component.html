@@ -16,6 +16,9 @@
       <a routerLink="/">Contact</a>
     </div>
 
+    <div (click)="tooltip.show()" #tooltip="matTooltip" matTooltip="It's empty!" [matTooltipPosition]="'below'"
+    matTooltipClass="tooltip" matTooltipHideDelay="2000"
+    [matTooltipDisabled]="cart.itemCount != 0">
     <button id="cart-summary" mat-mini-fab color="accent"
     routerLink="/cart"
     [disabled]="cart.itemCount == 0">
@@ -23,6 +26,7 @@
     matBadge="{{cart.itemCount}}" [matBadgeHidden]="cart.itemCount == 0"
     matBadgePosition="below after" matBadgeSize="medium" matBadgeColor="warn" matBadgeOverlap="true">shopping_cart</mat-icon>
   </button>
+  </div>
 
   <button mat-icon-button id="menu-button"
   [matMenuTriggerFor]="menu">
