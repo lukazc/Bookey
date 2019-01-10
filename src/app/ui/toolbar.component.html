@@ -19,7 +19,9 @@
     <button id="cart-summary" mat-mini-fab color="accent"
     routerLink="/cart"
     [disabled]="cart.itemCount == 0">
-    <mat-icon aria-hidden="true">shopping_cart</mat-icon>
+    <mat-icon aria-hidden="true"
+    matBadge="{{cart.itemCount}}" [matBadgeHidden]="cart.itemCount == 0"
+    matBadgePosition="below after" matBadgeSize="medium" matBadgeColor="warn" matBadgeOverlap="true">shopping_cart</mat-icon>
   </button>
 
   <button mat-icon-button id="menu-button"

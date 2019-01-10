@@ -1,5 +1,6 @@
 @import "~sass/breakpoints";
 @import "~sass/mixins";
+@import "~sass/colors";
 
 :host() {
     flex-shrink: 0;
@@ -68,5 +69,10 @@
 
     #cart-summary {
         margin-right: 16px;
+        color: $dark-text;
+
+        &[disabled] {
+            color: $beige;
+        }
     }
 }

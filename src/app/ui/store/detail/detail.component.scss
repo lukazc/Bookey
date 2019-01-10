@@ -1,0 +1,107 @@
+@import "~sass/colors";
+@import "~sass/breakpoints";
+
+#container {
+    font-family: "Roboto", sans-serif;
+    max-width: 800px;
+
+    #main {
+        display: grid;
+        justify-content: stretch;
+
+        #cover-wrapper {
+            order: 3;
+            // display: grid;
+            // justify-content: center;
+            justify-self: center;
+            #cover-image {
+                margin-top: 8px;
+            }
+        }
+
+        #title {
+            order: 1;
+            // justify-self: start;
+
+            font-size: 1.375rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+
+            color: $dark-text;
+        }
+        #author {
+            order: 2;
+            // justify-self: start;
+            margin-top: 6px;
+
+            font-size: 1.0625rem;
+            font-weight: 600;
+            text-align: center;
+
+            color: $light-text;
+        }
+
+        #price {
+            order: 4;
+            margin-top: 8px;
+
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1.25rem;
+            text-align: center;
+            color: $dark-text;
+        }
+
+        #control {
+            order: 5;
+            justify-self: center;
+            margin-top: 12px;
+
+            #add-button {
+                width: 180px;
+                font-weight: 600;
+
+                transition: 0.3s;
+                &:hover {
+                    background: $light-purple;
+                }
+            }
+
+            #quantity {
+                flex-grow: 1;
+
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                color: $light-purple;
+
+                span {
+                    height: fit-content;
+                    font-size: 1.625rem;
+
+                    @media screen and (max-width: $xs-breakpoint) {
+                        font-size: 1.25rem;
+                    }
+                }
+            }
+        }
+    }
+
+    #about {
+        margin-top: 20px;
+
+        #description {
+            font-size: 0.875rem;
+
+            #description__header {
+                font-size: 1rem;
+                font-weight: bold;
+            }
+            #description__quote {
+                font-weight: bold;
+            }
+            #description__filler {}
+        }
+    }
+
+}
