@@ -9,37 +9,41 @@
             <div id="author">{{author}}</div>
             <div id="price">{{price | currency:"USD":"symbol-narrow":"1.2-2"}}</div>
             <div id="control">
-                <button id="add-button" mat-flat-button tabindex="-1"
+                <button class="action-button" mat-flat-button tabindex="-1"
                 *ngIf="!cartLine" (click)="addToCart()">Add to bag
-            </button>
-            <div id="quantity"
-            *ngIf="cartLine">
-            <button mat-icon-button tabindex="-1"
-            (click)="increaseQuantity()">
-            <mat-icon>add_circle</mat-icon>
-        </button>
-        <span>{{cartLine.quantity}}</span>
-        <button mat-icon-button tabindex="-1"
-        (click)="decreaseQuantity()">
-        <mat-icon>remove_circle</mat-icon>
-    </button>
-</div>
-</div>
-</div>
-<div id="about">
-    <div id="description">
-        <p id="description__header">Description</p>
-        <p id="description__quote">{{product.description}}</p>
-        <p id="description__filler">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultrices erat non molestie dapibus. Suspendisse dignissim, purus vitae cursus posuere, neque dolor accumsan tortor, in suscipit ipsum eros a enim. Suspendisse efficitur orci et purus scelerisque, fringilla iaculis tortor consequat. Nullam nec fringilla diam. Nunc non sodales dui. Aenean ac pulvinar neque. Sed sem libero, mollis malesuada iaculis sed, dictum sit amet orci. Vivamus tristique ante orci, non hendrerit lectus porta ut. Donec porttitor nibh ipsum, quis vulputate lectus viverra vitae. Aliquam lobortis pulvinar lectus ac dignissim. Vivamus rutrum efficitur felis ac hendrerit. Nunc varius nec purus id pretium. Nulla sit amet nunc massa. Vivamus mattis ex quis maximus tincidunt.
-
-        Suspendisse non odio nec neque elementum pulvinar id quis sem. Duis ullamcorper leo at urna malesuada, ut imperdiet felis aliquam. Aenean fringilla dignissim eros, vel accumsan purus sollicitudin non. Fusce rutrum nulla sed nisl hendrerit tempor. Sed fermentum ultrices magna, sed fermentum odio porttitor vitae. Donec suscipit turpis in condimentum feugiat. Duis tempus mi sit amet enim sodales semper. Ut luctus iaculis neque. Vivamus tempus nisl feugiat lorem maximus, ut accumsan elit finibus. Ut molestie facilisis fringilla. Sed vitae ipsum in diam laoreet dapibus. Pellentesque sit amet malesuada est, eget vestibulum quam. Duis pulvinar, magna vel pharetra ultricies, massa turpis dignissim enim, sit amet fringilla enim quam eu felis. Donec a orci lacus. Curabitur rutrum finibus est.</p>
+                </button>
+                <button class="action-button" mat-flat-button tabindex="-1"
+                *ngIf="cartLine" routerLink="/cart" matDialogClose>
+                    Checkout
+                </button>
+                <div id="quantity" *ngIf="cartLine">
+                    <button mat-icon-button tabindex="-1"
+                    (click)="increaseQuantity()">
+                        <mat-icon>add_circle</mat-icon>
+                    </button>
+                    <span>{{cartLine.quantity}}</span>
+                    <button mat-icon-button tabindex="-1"
+                    (click)="decreaseQuantity()">
+                        <mat-icon>remove_circle</mat-icon>
+                    </button>
+                </div>
+            </div>
         </div>
-        <!-- <div id="details">
-            <p>Format</p>
-            <p>Dimensions</p>
-            <p>Publication date</p>
-            <p></p>
-        </div> -->
+
+        <div id="about">
+            <div id="description">
+                <p id="description__header">Description</p>
+                <p id="description__quote">{{product.description}}</p>
+                <p id="description__filler">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultrices erat non molestie dapibus. Suspendisse dignissim, purus vitae cursus posuere, neque dolor accumsan tortor, in suscipit ipsum eros a enim. Suspendisse efficitur orci et purus scelerisque, fringilla iaculis tortor consequat. Nullam nec fringilla diam. Nunc non sodales dui. Aenean ac pulvinar neque. Sed sem libero, mollis malesuada iaculis sed, dictum sit amet orci. Vivamus tristique ante orci, non hendrerit lectus porta ut. Donec porttitor nibh ipsum, quis vulputate lectus viverra vitae. Aliquam lobortis pulvinar lectus ac dignissim. Vivamus rutrum efficitur felis ac hendrerit. Nunc varius nec purus id pretium. Nulla sit amet nunc massa. Vivamus mattis ex quis maximus tincidunt.
+
+                Suspendisse non odio nec neque elementum pulvinar id quis sem. Duis ullamcorper leo at urna malesuada, ut imperdiet felis aliquam. Aenean fringilla dignissim eros, vel accumsan purus sollicitudin non. Fusce rutrum nulla sed nisl hendrerit tempor. Sed fermentum ultrices magna, sed fermentum odio porttitor vitae. Donec suscipit turpis in condimentum feugiat. Duis tempus mi sit amet enim sodales semper. Ut luctus iaculis neque. Vivamus tempus nisl feugiat lorem maximus, ut accumsan elit finibus. Ut molestie facilisis fringilla. Sed vitae ipsum in diam laoreet dapibus. Pellentesque sit amet malesuada est, eget vestibulum quam. Duis pulvinar, magna vel pharetra ultricies, massa turpis dignissim enim, sit amet fringilla enim quam eu felis. Donec a orci lacus. Curabitur rutrum finibus est.</p>
+            </div>
+            <!-- <div id="details">
+                <p>Format</p>
+                <p>Dimensions</p>
+                <p>Publication date</p>
+                <p></p>
+            </div> -->
+        </div>
     </div>
-</div>
 </mat-dialog-content>
