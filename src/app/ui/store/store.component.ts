@@ -21,25 +21,25 @@ export class StoreComponent implements OnInit {
   observerSubscription: Subscription;
   showFilter: boolean = false;
 
-  private selectedCategories: string[] = [];
+  selectedCategories: string[] = [];
 
-  private pageSizeOptions = [8, 16, 32, 64];
-  private pageSize = 16;
-  private selectedPage = 0;
+  pageSizeOptions = [8, 16, 32, 64];
+  pageSize = 16;
+  selectedPage = 0;
 
-  private sortOptions: string[] = [
+  sortOptions: string[] = [
     'Price (low - high)',
     'Title (A - Z)',
     'Title (Z - A)',
     'Price (high - low)'
   ];
 
-  private searchText: string = "";
+  searchText: string = "";
 
   constructor(
     private router: Router,
     private _repository: ProductRepository,
-    private cart: Cart,
+    public cart: Cart,
     breakpointObserver: BreakpointObserver,
     private detailDialog: MatDialog) {}
 

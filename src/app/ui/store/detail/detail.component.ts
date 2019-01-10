@@ -12,15 +12,15 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 })
 export class DetailComponent {
 
-    private title: string;
-    private author: string;
-    private description: string;
-    private category: string;
-    private price: number;
+    title: string;
+    author: string;
+    description: string;
+    category: string;
+    price: number;
 
-    private cartLine: any;
+    cartLine: any;
 
-    constructor(public cart: Cart, @Inject(MAT_DIALOG_DATA) private product: any) {
+    constructor(public cart: Cart, @Inject(MAT_DIALOG_DATA) public product: any) {
         this.title = product.title;
         this.author = product.author;
         this.description = product.description;

@@ -10,7 +10,7 @@ import { Cart } from '@app-data/cart/cart.service';
 export class CartComponent {
     constructor(public cart: Cart) {}
 
-    private orderCompleted = false;
+    orderCompleted = false;
 
     @ViewChild('stepper') stepper;
 

@@ -10,5 +10,5 @@ import { Cart } from '@app-data/cart/cart.service';
 export class CartBarComponent {
     constructor(public cart: Cart) { }
 
-    private isCollapsed = false;
+    isCollapsed = false;
 }

@@ -10,6 +10,6 @@ import { Cart } from '@app-data/cart/cart.service';
 
   export class ToolbarComponent {
 
-    constructor(private cart: Cart) {}
+    constructor(public cart: Cart) {}
 
   }
