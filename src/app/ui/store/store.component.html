@@ -8,15 +8,15 @@
   <mat-expansion-panel
   hideToggle [disabled]="true" [expanded]="showFilter">
   <mat-expansion-panel-header>
-    <div id="filter__header"
-    (click)="toggleShowFilter()">
+    <div id="filter__header">
       <!-- Hidden Flex counterweight buttons -->
       <button class="filter__button hidden" mat-button>
         <mat-icon>tune</mat-icon>
         <span>FILTER</span>
       </button>
       <!-- Alt button for mobile -->
-      <button class="filter__button--mobile hidden" mat-button>
+      <button class="filter__button--mobile hidden" mat-button
+      (click)="toggleShowFilter()">
         <mat-icon>tune</mat-icon>
       </button>
       <div id="filter__searchbox">
@@ -36,13 +36,13 @@
     </div>
     <!-- Visible buttons -->
     <button mat-button class="filter__button"
-    [class.isActive]="showFilter">
+    [class.isActive]="showFilter" (click)="toggleShowFilter()">
     <mat-icon>tune</mat-icon>
     <span>FILTER</span>
   </button>
   <!-- Alt button for mobile -->
   <button class="filter__button--mobile" mat-button
-  [class.isActive]="showFilter">
+  [class.isActive]="showFilter" (click)="toggleShowFilter()">
       <mat-icon>tune</mat-icon>
     </button>
 </div>
@@ -96,7 +96,7 @@
     (click)="openDetailDialog(product)">
       <button mat-flat-button
       class="item__action-button hidden" [class.mat-elevation-z2]="true"
-      (click)="addProductToCart(product)">
+      (click)="addProductToCart(product); $event.stopPropagation()">
       Add to bag
     </button>
       <img class="item__img" src="https://picsum.photos/180/225/?image=991" appFallbackSrc="../../../assets/cover.jpg">

@@ -13,6 +13,14 @@
     overflow: auto;
 }
 
+#back-button {
+    mat-icon {
+        margin-right: 8px;
+    }
+    margin-top: 16px;
+    color: $accent-purple-dark;
+}
+
 #stepper {
     max-width: 1200px;
     background-color: $beige;
@@ -167,6 +175,7 @@
         }
 
         .cart-summary {
+            margin-top: 16px;
 
             padding: 16px 32px;
 

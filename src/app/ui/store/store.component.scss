@@ -147,6 +147,10 @@
                         color: $accent-purple-light;
                     }
 
+                    ::ng-deep .mat-select-value {
+                        color: $accent-purple-light;
+                    }
+
                     ::ng-deep .mat-select-arrow {
                         border-top: 5px solid $accent-purple-light;
                     }
@@ -301,7 +305,8 @@
                     width: 85%;
 
                     position: absolute;
-                    top: 5%;
+                    // top: 5%;
+                    bottom: 25px;
 
                     background: $accent-purple-dark;
                     transition: 0.3s;
@@ -319,7 +324,7 @@
 
                 &:hover .hidden {
                     visibility: visible;
-                    opacity: 0.9;
+                    opacity: 1;
                 }
             }
 
