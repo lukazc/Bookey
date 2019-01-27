@@ -1,28 +1,31 @@
-# WebShop
-Simple web shop built in Angular.
+# Bookey
+Online product catalog.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
+## Live demo
+https://lukazc.github.io/Bookey
+
+## Features
+Catalog:
+- browse by category and page
+- search and sort
+
+Shopping bag:
+- add / remove products
+
+Checkout:
+- enter shipping info
+- place orders
+
+Stay tuned for more features in the near future!
+
+## How it's made
+- Angular 6
+- Angular Material
+- RxJS
 
 ## Development server
-
-Run `npm run it` for both the dev server and json-server. Navigate to `http://localhost:4200/` and `http://localhost:3500/`, respectively.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Clone the repo and run `npm install`.
+- Type `npm run it` to simultaneously run both the client and back-end dev servers. Navigate to `http://localhost:4200/` and `http://localhost:3500/`, respectively.
 
 ## Build
-
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
