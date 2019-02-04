@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { RoutingModule } from './routing.module';
 import { StoreFirstGuard } from '@app/route.guard';
 import { ToolbarComponent } from '@app-ui/toolbar.component';
+import { MiscModule } from './ui/misc/misc.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ToolbarComponent } from '@app-ui/toolbar.component';
     HttpClientModule,
     MaterialDesignModule,
     StoreModule,
-    RoutingModule
+    RoutingModule,
+    MiscModule
   ],
   providers: [StoreFirstGuard],
   bootstrap: [AppComponent]

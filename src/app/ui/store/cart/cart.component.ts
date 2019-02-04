@@ -19,7 +19,6 @@ export class CartComponent {
         setTimeout(() => {
             this.stepper.next();
         }, 0);
-        console.log('event is received in Cart comp');
     }
 
     increaseQuantity (line) {
