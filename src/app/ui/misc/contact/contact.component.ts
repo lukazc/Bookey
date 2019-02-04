@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Feedback } from '@app-data/feedback.model';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
+  public feedback: Feedback = {};
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  submitFeedback(form) {
+    if (form.valid) {
+      alert(JSON.stringify(this.feedback));
+    }
   }
 
 }

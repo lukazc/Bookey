@@ -1,3 +1,30 @@
-<p>
-  contact works!
-</p>
+<div id="container">
+    <form #feedbackForm="ngForm" (ngSubmit)="submitFeedback(feedbackForm)">
+      <!-- name -->
+      <mat-form-field appearance="outline"
+      [hideRequiredMarker]="true">
+        <mat-label>Your name</mat-label>
+        <input matInput type="text" name="name"
+        [(ngModel)]="feedback.name" required minlength="2">
+      </mat-form-field>
+      <!-- email -->
+      <mat-form-field appearance="outline"
+      [hideRequiredMarker]="true">
+        <mat-label>Your e-mail</mat-label>
+        <input matInput type="email" name="email" placeholder="Your Email"
+        [(ngModel)]="feedback.email" required email>
+      </mat-form-field>
+      <!-- message -->
+      <mat-form-field appearance="outline">
+        <textarea matInput cdkTextareaAutosize class="textarea" name="message" placeholder="What's on your mind?"
+        [(ngModel)]="feedback.message" required></textarea>
+      </mat-form-field>
+
+      <button mat-raised-button type="submit">Submit</button>
+
+    </form>
+
+  <div id="links">
+
+  </div>
+</div>
