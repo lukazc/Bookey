@@ -7,6 +7,7 @@ import { catchError } from 'rxjs/operators';
 import { Order } from '@app-data/order.model';
 import { Product } from '@app-data/product.model';
 import { DataStaticSource } from './data.static.source';
+import { Feedback } from './feedback.model';
 
 const PROTOCOL = 'http';
 const PORT = 3500;
@@ -31,6 +32,14 @@ export class DataSource {
         return this._http.post<Order>(url, order)
         .pipe(catchError(e =>
             this.fallbackSource.saveOrder(order)
+        ));
+    }
+
+    sendFeedback(feedback: Feedback): Observable<Feedback> {
+        const url = this.baseUrl + 'feedback';
+        return this._http.post<Feedback>(url, feedback)
+        .pipe(catchError(e =>
+            this.fallbackSource.sendFeedback(feedback)
         ));
     }
 }

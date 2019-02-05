@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Feedback } from '@app-data/feedback.model';
+import { DataSource } from '@app-data/data.source';
 
 @Component({
   selector: 'app-contact',
@@ -10,8 +11,9 @@ export class ContactComponent implements OnInit {
 
   public feedback: Feedback = {};
   submitAttempted: boolean = false;
+  feedbackSent: boolean = false;
 
-  constructor() { }
+  constructor(private dataSource: DataSource) { }
 
   ngOnInit() {
   }
@@ -20,7 +22,11 @@ export class ContactComponent implements OnInit {
     this.submitAttempted = true;
 
     if (form.valid) {
-      alert(JSON.stringify(this.feedback));
+      this.dataSource.sendFeedback(this.feedback)
+      .subscribe(feedback => {
+        this.feedbackSent = true;
+        this.submitAttempted = false;
+      });
     }
   }
 

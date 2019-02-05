@@ -24,6 +24,7 @@ module.exports = function () {
             { id: 21, title: "The Vital Question", author: "Nick Lane", category: "Popular science", description: "Nick Lane radically reframes evolutionary history, putting forward a solution to conundrums that have puzzled generations of scientists.", price: 16.95 },
             { id: 22, title: "Enlightenment Now", author: "Steven Pinker", category: "Social philosophy", description: "People are living longer, healthier, freer, and happier lives, and while our problems are formidable, the solutions lie in the Enlightenment ideal of using reason and science.", price: 23.79 }
         ],
-        orders: []
+        orders: [],
+        feedback: []
     };
 };
