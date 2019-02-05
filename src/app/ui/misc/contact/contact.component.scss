@@ -21,6 +21,16 @@
 
     margin-top: 50px;
 
+    h1 {
+        font-family: "Homestead Regular";
+        color: $dark-text;
+        margin-bottom: 10px;
+    }
+    #divider {
+        width: 130px;
+        border-top: 2px solid $accent-purple-dark;
+        margin-bottom: 15px;
+    }
     form {
         display: flex;
         flex-direction: column;
@@ -29,6 +39,8 @@
         max-width: 700px;
 
         button {
+            margin-top: 10px;
+            height: 60px;
             background-color: $light-purple;
             color: $beige;
         }

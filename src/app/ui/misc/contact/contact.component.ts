@@ -9,6 +9,7 @@ import { Feedback } from '@app-data/feedback.model';
 export class ContactComponent implements OnInit {
 
   public feedback: Feedback = {};
+  submitAttempted: boolean = false;
 
   constructor() { }
 
@@ -16,6 +17,8 @@ export class ContactComponent implements OnInit {
   }
 
   submitFeedback(form) {
+    this.submitAttempted = true;
+
     if (form.valid) {
       alert(JSON.stringify(this.feedback));
     }

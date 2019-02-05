@@ -1,8 +1,12 @@
 # Bookey
-Online product catalog.
+A shopping application built with Angular 6 and Angular Material. Includes a product catalog for users to browse and filter products, a shopping bag service to select their purchase, and checkout forms to place orders.
 
-## Live demo
-https://lukazc.github.io/Bookey
+## Live demo @ https://lukazc.github.io/Bookey
+
+## How it's made
+- Angular 6
+- RxJS
+- Angular Material + SASS
 
 ## Features
 Catalog:
@@ -17,11 +21,6 @@ Checkout:
 - place orders
 
 Stay tuned for more features in the near future!
-
-## How it's made
-- Angular 6
-- Angular Material
-- RxJS
 
 ## Development server
 - Clone the repo and run `npm install`.

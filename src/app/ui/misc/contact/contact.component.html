@@ -1,23 +1,35 @@
 <div id="container">
+    <h1>Contact Us</h1>
+    <div id="divider"></div>
     <form #feedbackForm="ngForm" (ngSubmit)="submitFeedback(feedbackForm)">
       <!-- name -->
       <mat-form-field appearance="outline"
       [hideRequiredMarker]="true">
         <mat-label>Your name</mat-label>
-        <input matInput type="text" name="name"
+        <input matInput type="text" name="name" #name="ngModel"
         [(ngModel)]="feedback.name" required minlength="2">
+        <mat-error *ngIf="submitAttempted && name.invalid">
+            Name is <strong>required</strong>.
+        </mat-error>
       </mat-form-field>
       <!-- email -->
       <mat-form-field appearance="outline"
       [hideRequiredMarker]="true">
         <mat-label>Your e-mail</mat-label>
-        <input matInput type="email" name="email" placeholder="Your Email"
+        <input matInput type="email" name="email" #email="ngModel"
         [(ngModel)]="feedback.email" required email>
+        <mat-error *ngIf="submitAttempted && email.invalid">
+            E-mail address is <strong>required</strong>.
+        </mat-error>
       </mat-form-field>
       <!-- message -->
       <mat-form-field appearance="outline">
-        <textarea matInput cdkTextareaAutosize class="textarea" name="message" placeholder="What's on your mind?"
-        [(ngModel)]="feedback.message" required></textarea>
+        <textarea matInput cdkTextareaAutosize name="message" #message="ngModel"
+        placeholder="What's on your mind?"
+        [(ngModel)]="feedback.message" required minlength="10"></textarea>
+        <mat-error *ngIf="submitAttempted && message.invalid">
+            The message is <strong>too short</strong>.
+        </mat-error>
       </mat-form-field>
 
       <button mat-raised-button type="submit">Submit</button>

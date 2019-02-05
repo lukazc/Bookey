@@ -6,7 +6,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatFormFieldModule, MatInputModule,
   MatSelectModule, MatButtonModule, MatCheckboxModule,
   MatProgressSpinnerModule, MatIconModule, MatExpansionModule, MatButtonToggleModule, MatStepperModule,
-  MatMenuModule, MatDialogModule, MatBadgeModule, MatTooltipModule } from '@angular/material';
+  MatMenuModule, MatDialogModule, MatBadgeModule, MatTooltipModule, MatDividerModule } from '@angular/material';
 
 
 @NgModule({
@@ -27,7 +27,8 @@ import { MatToolbarModule, MatFormFieldModule, MatInputModule,
     MatMenuModule,
     MatDialogModule,
     MatBadgeModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDividerModule
   ],
   exports: [
     LayoutModule,
@@ -45,7 +46,8 @@ import { MatToolbarModule, MatFormFieldModule, MatInputModule,
     MatMenuModule,
     MatDialogModule,
     MatBadgeModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDividerModule
   ],
   declarations: []
 })
